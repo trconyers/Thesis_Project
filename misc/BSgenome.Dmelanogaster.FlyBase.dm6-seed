@@ -1,0 +1,38 @@
+Package: BSgenome.Dmelanogaster.FlyBase.dm6
+Title: Full genomic sequences for Drosophila melanogaster (FlyBase version r6.61)
+Description: Full genomic sequences for Drosophila melanogaster (Fly) as provided by FlyBase (r6.61, Dec. 2024) and stored in Biostrings objects.
+Version: 1.0.0
+Suggests: txdbmaker
+organism: Drosophila melanogaster
+common_name: Fly
+provider: FlyBase
+provider_version: r6.61
+release_date: Dec. 2024
+release_name: FB2024_06 Dmel Release 6.61
+source_url: https://s3ftp.flybase.org/genomes/Drosophila_melanogaster/dmel_r6.61_FB2024_06/fasta/index.html
+organism_biocview: Drosophila_melanogaster
+BSgenomeObjname: Dmelanogaster
+seqnames: seqnames(Seqinfo(genome="dm6"))
+circ_seqs: "chrM"
+SrcDataFiles: dmel-all-chromosome-r6.61.fa.gz from https://s3ftp.flybase.org/genomes/Drosophila_melanogaster/dmel_r6.61_FB2024_06/fasta/index.html
+PkgExamples: bsg$chr2L  # same as bsg[["chr2L"]]
+	.
+	## ---------------------------------------------------------------------
+	## Extract the upstream sequences
+	## ---------------------------------------------------------------------
+	## The upstream sequences can easily be extracted from the full genome
+	## sequences with something like:
+	.
+	library(txdbmaker)
+	txdb <- makeTxDbFromUCSC("dm6", tablename="refGene")
+	up1000seqs <- extractUpstreamSeqs(bsg, txdb, width=1000)
+	.
+	## IMPORTANT: Make sure you use a TxDb package (or TxDb object) that
+	## contains a gene model based on dm6 or on a compatible genome (i.e.
+	## a genome with sequences identical to the sequences in dm6). Note
+	## that you can make a TxDb object from various annotation resources.
+	## See the makeTxDbFromUCSC(), makeTxDbFromBiomart(), and
+	## makeTxDbFromGFF() functions in the txdbmaker package for more
+	## information.
+seqs_srcdir: /misc/seqs
+seqfile_name: dmel-r6.61.2bit
