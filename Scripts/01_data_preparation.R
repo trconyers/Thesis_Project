@@ -91,3 +91,4 @@ start(dmel_gr[problems[3:4]]) <- start(dmel_gr[problems[3:4]]) - 2
 rm(GTFgr,transcripts,genes,problems)
 
 dmel_txdb <- txdbmaker::makeTxDbFromGRanges(dmel_gr, taxonomyId = 7227)
+save.image()
