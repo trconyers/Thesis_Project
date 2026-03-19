@@ -2,6 +2,7 @@
 library(BSgenomeForge)
 library(easy.utils)
 library(S4Vectors)
+library(readxl)
 library(stringr)
 library(Biostrings)
 
