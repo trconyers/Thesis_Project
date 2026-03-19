@@ -40,7 +40,7 @@ setwd(wd)
 
 install.packages(pkg, repos = NULL, type = "win.binary")
 
-##################### Make TxDb package for r6.61. #####################
+##################### Make TxDb for r6.61. #####################
 library(purrr)
 library(rtracklayer)
 library(Seqinfo)
