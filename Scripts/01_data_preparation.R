@@ -41,6 +41,10 @@ setwd(wd)
 install.packages(pkg, repos = NULL, type = "win.binary")
 
 ##################### Make TxDb package for r6.61. #####################
+library(purrr)
+library(rtracklayer)
+library(Seqinfo)
+library(IRanges)
 library(BSgenome.Dmelanogaster.FlyBase.dm6)
 dmel_genome <- BSgenome.Dmelanogaster.FlyBase.dm6
 
@@ -81,7 +85,7 @@ names(genes) <- genes$transcript_id
 dmel_gr <- c(transcripts,genes)
 dmel_gr <- sort_by(x = dmel_gr, y = dmel_gr$transcript_id)
 dmel_gr@seqinfo <- seqinfo(dmel_genome)[levels(dmel_gr@seqnames)]
-problems <- which(dmel_gr$type=="exon" & names(dmel_gr) %fin% c("FBtr0100857", "FBtr0100863", "FBtr0433500", "FBtr0433501"))
+problems <- which(dmel_gr$type=="exon" & names(dmel_gr) %in% c("FBtr0100857", "FBtr0100863", "FBtr0433500", "FBtr0433501"))
 end(dmel_gr[problems[1:2]]) <- end(dmel_gr[problems[1:2]]) + 2
 start(dmel_gr[problems[3:4]]) <- start(dmel_gr[problems[3:4]]) - 2
 rm(GTFgr,transcripts,genes,problems)
