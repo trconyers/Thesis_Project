@@ -204,10 +204,10 @@ Griffin <- data.frame(check.names = FALSE,
                       `Direction (Transcriptomics)` = NA_character_
 )
 ###
-Zhou_data <- as.data.frame(read_tsv("Stress/Genomics/Zhou_2011/Zhou_SNPs.tsv"))
-Zhou_genes <- gene_mapper(chromosome = Zhou_data$chromosome, start = Zhou_data$start, end = Zhou_data$end)
-Zhou <- data.frame(check.names = FALSE,
-                   `Candidate FB IDs` = Zhou_genes,
+Zhou.11_data <- as.data.frame(read_tsv("Stress/Genomics/Zhou_2011/Zhou_SNPs.tsv"))
+Zhou.11_genes <- gene_mapper(chromosome = Zhou.11_data$chromosome, start = Zhou.11_data$start, end = Zhou.11_data$end)
+Zhou.11 <- data.frame(check.names = FALSE,
+                   `Candidate FB IDs` = Zhou.11_genes,
                    `Selection Type` = "Stress",
                    `Populations Used` = "Control vs. Hypoxia",
                    `Source Articles` = "Zhou 2011",
