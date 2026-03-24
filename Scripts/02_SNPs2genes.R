@@ -185,13 +185,9 @@ TS <- data.frame(check.names = FALSE,
 )
 ###
 Griffin_data <- as.data.frame(read_tsv("Stress/Genomics/Griffin_2017/Griffin_SNPs.tsv"))
-Griffin_data <- split.data.frame(x = Griffin_data, f = Griffin_data$`#`)
-Griffin_genes <- unlist(map(.x = Griffin_data, .f = function(x) {
-  gene_mapper(chromosome = x$chromosome, start = x$start, end = x$end)
-  }
-))
-Griffin_data <- rbindList(Griffin_data, keepListNames = FALSE)
-Griffin_genes <- unique(Griffin_genes[tcount(Griffin_genes) > 1])
+Griffin_data <- Griffin_data[(pasteByRow(Griffin_data[-1]) %fin% names((tcount(pasteByRow(Griffin_data[-1])))[tcount(pasteByRow(Griffin_data[-1])) > 1])),]
+Griffin_genes <- gene_mapper(chromosome = Griffin_data$chromosome, start = Griffin_data$start, end = Griffin_data$end)
+
 Griffin_rejs <- read_tsv(file = "Stress/Genomics/Griffin_2017/Putative_lab_adaptation_genes.txt", col_names = FALSE)[[1]]
 Griffin_genes <- setdiff(Griffin_genes, Griffin_rejs); rm(Griffin_rejs)
 Griffin <- data.frame(check.names = FALSE,
