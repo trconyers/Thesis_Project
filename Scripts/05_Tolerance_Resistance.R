@@ -17,6 +17,12 @@ Longev.Table <- Unique(Gene.Table_EG$`Candidate FB IDs`[Gene.Table_EG$`Selection
 Immun.Table <- Unique(Gene.Table_EG$`Candidate FB IDs`[Gene.Table_EG$`Selection Type` == "Immunity"])
 Stress.Table <- Unique(Gene.Table_EG$`Candidate FB IDs`[Gene.Table_EG$`Selection Type` == "Stress"])
 
+Howick_data <- as.data.frame(read_tsv("Immunity/Tolerance.v.Resistance/Howick_2017/Howick_SNPs.tsv"))
+Howick_Tolerance <- Howick_data[Howick_data$immun_type=="tolerance",]
+tolerance <- gene_mapper(chromosome = Howick_Tolerance$chromosome, start = Howick_Tolerance$start, end = Howick_Tolerance$end)
+Howick_Resistance <- Howick_data[Howick_data$immun_type=="resistance",]
+resistance <- gene_mapper(chromosome = Howick_Resistance$chromosome, start = Howick_Resistance$start, end = Howick_Resistance$end)
+
 Tol_Res_list <- list(
   Longevity_Immunity = SuperExactTest::intersect(Longev.Table, Immun.Table),
   Longevity_Stress = SuperExactTest::intersect(Longev.Table, Stress.Table),
