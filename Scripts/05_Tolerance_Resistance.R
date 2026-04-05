@@ -81,7 +81,7 @@ Defensedat <- sort_by.data.frame(x = Defensedat, y = -Defensedat$FE)
 Defensedat <- sort_by.data.frame(x = Defensedat, y = Defensedat$P.value)
 Defensedat <- Defensedat[Defensedat$Degree==2,]
 Defensedat <- Defensedat[Defensedat$Observed.Overlap>0,-2]
-Defensedat$Elements <- unlist(map(.x = strsplit(x = Defensedat$Elements, split = ", "), .f = compose(str_flatten_comma, EG2FB)))
+Defensedat$Elements <- unlist(map(.x = strsplit(x = Defensedat$Elements, split = ", "), .f = compose(str_flatten_comma, Gene2SYMBOL)))
 Defensedat$Elements[Defensedat$P.adj>=0.05] <- "non-significant"
 write_excel_csv(Defensedat,
                 file = "Data/def_type.csv",
