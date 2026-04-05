@@ -68,19 +68,8 @@ names(transcripts) <- transcripts$transcript_id
 
 genes <- GTFgr[GTFgr$type=="gene"]
 names(genes) <- genes$gene_id
-hits <- mergeByOverlaps(genes, transcripts, type = "equal")
-hits <- sort_by.data.frame(x = hits, y = hits$transcripts$transcript_name)
-hits <- hits[hits$genes$gene_id==hits$transcripts$gene_id,]
-hits <- hits[unique(rownames(hits)),]
-genes <- genes[setdiff(names(genes), rownames(hits))]
-hits2 <- mergeByOverlaps(genes, transcripts, type = "start")
-hits2 <- sort_by.data.frame(x = hits2, y = -end(hits2$transcripts))
-hits2 <- hits2[hits2$genes$gene_id==hits2$transcripts$gene_id,]
-hits2 <- hits2[unique(rownames(hits2)),]
-hits <- combineRows(hits,hits2)
-hits$genes$transcript_id <- hits$transcripts$transcript_id
-hits$genes$transcript_name <- hits$transcripts$transcript_name
-genes <- hits$genes; rm(hits,hits2)
+genes$transcript_id <- Ensembl_Canon[names(genes),2]
+genes$transcript_name <- transcripts[genes$transcript_id]$transcript_name
 names(genes) <- genes$transcript_id
 
 dmel_gr <- c(transcripts,genes)
