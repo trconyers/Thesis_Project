@@ -18,7 +18,7 @@ new_theme$plot.title@hjust <- 0.5
 set_theme(new = new_theme); rm(new_theme)
 
 Immun_genes.T <- Immundat.T$Elements
-Immun_genes.T <- FB2EG(unique(unlist(strsplit(x = str_flatten_comma(Immun_genes.T), split = ", "))))
+Immun_genes.T <- SYMBOL2Gene(unique(unlist(strsplit(x = str_flatten_comma(Immun_genes.T), split = ", "))))
 Immun_lds.T <- c(is.longevity(Immun_genes.T), is.immunity(Immun_genes.T), is.stress(Immun_genes.T))
 Immun_Clusts.T <- list(Lifespan = is.longevity(Immun_genes.T), Defense = is.immunity(Immun_genes.T), Stress_Response = is.stress(Immun_genes.T), Other = setdiff(Immun_genes.T, Immun_lds.T))
 Immun_enrich.T <- enrichGO(gene = Immun_genes.T, OrgDb = org.Dm.eg.db)
@@ -75,7 +75,7 @@ savePlotAsImage(
 )
 
 Stress_genes.T <- Stressdat.T$Elements[Stressdat.T$Degree>=Maxs(Stressdat.T$Degree) - 1]
-Stress_genes.T <- unname(FB2EG(unique(unlist(strsplit(x = str_flatten_comma(Stress_genes.T), split = ", ")))))
+Stress_genes.T <- unname(SYMBOL2Gene(unique(unlist(strsplit(x = str_flatten_comma(Stress_genes.T), split = ", ")))))
 Stress_lds.T <- c(is.longevity(Stress_genes.T), is.immunity(Stress_genes.T), is.stress(Stress_genes.T))
 Stress_Clusts.T <- list(Lifespan = is.longevity(Stress_genes.T), Defense = is.immunity(Stress_genes.T), Stress_Response = is.stress(Stress_genes.T), Other = setdiff(Stress_genes.T, Stress_lds.T))
 Stress_enrich.T <- enrichGO(gene = Stress_genes.T, OrgDb = org.Dm.eg.db)
@@ -132,7 +132,7 @@ savePlotAsImage(
 )
 
 ######################## Longev_Immun/Stress_ORA_Transcriptomics #########################
-LI_genes.T <- unname(FB2EG(unique(unlist(strsplit(x = Selectiondat.T$Elements[Selectiondat.T$Intersections=="Longevity & Immunity"], split = ", ")))))
+LI_genes.T <- unname(SYMBOL2Gene(unique(unlist(strsplit(x = Selectiondat.T$Elements[Selectiondat.T$Intersections=="Longevity & Immunity"], split = ", ")))))
 LI_lds.T <- c(is.longevity(LI_genes.T), is.immunity(LI_genes.T), is.stress(LI_genes.T))
 LI_Clusts.T <- list(Lifespan = is.longevity(LI_genes.T), Defense = is.immunity(LI_genes.T), Stress_Response = is.stress(LI_genes.T), Other = setdiff(LI_genes.T, LI_lds.T))
 LI_enrich.T <- enrichGO(gene = LI_genes.T, OrgDb = org.Dm.eg.db)
@@ -188,7 +188,7 @@ savePlotAsImage(
   height = 742
 )
 
-LS_genes.T <- unname(FB2EG(unique(unlist(strsplit(x = Selectiondat.T$Elements[Selectiondat.T$Intersections=="Longevity & Stress"], split = ", ")))))
+LS_genes.T <- unname(SYMBOL2Gene(unique(unlist(strsplit(x = Selectiondat.T$Elements[Selectiondat.T$Intersections=="Longevity & Stress"], split = ", ")))))
 LS_lds.T <- c(is.longevity(LS_genes.T), is.immunity(LS_genes.T), is.stress(LS_genes.T))
 LS_Clusts.T <- list(Lifespan = is.longevity(LS_genes.T), Defense = is.immunity(LS_genes.T), Stress_Response = is.stress(LS_genes.T), Other = setdiff(LS_genes.T, LS_lds.T))
 LS_enrich.T <- enrichGO(gene = LS_genes.T, OrgDb = org.Dm.eg.db)
