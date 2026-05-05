@@ -1,4 +1,2 @@
 # Thesis_Project
-Custom R scripts employed to map SNPs to genomic regions, extract relevant gene annotations, and compare features between candidate genes and the genome background.
-
-Much of the data from prior studies consisted of SNP coordinates that were either not yet mapped to candidate genes or were mapped to an outdated version of the D. melanogaster reference genome. In such cases, gene lists were derived using my custom R scripts.
+This repository provides a reproducible, relative-path R bioinformatics pipeline used in a 2026 Master’s thesis to study the genetic architecture and population overlap of experimentally evolved Drosophila melanogaster lines selected for longevity, immune defense, or stress tolerance. It integrates genomic and transcriptomic data and includes custom R scripts to map SNPs to genomic regions, pull gene annotations, and compare candidate-gene features against genome-wide background.
