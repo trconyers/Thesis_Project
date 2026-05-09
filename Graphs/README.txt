@@ -1,1 +1,1 @@
-### A directory for figure outputs, plus two other figures shown in thesis ###
+### A directory for figure outputs (plus two other figures shown in thesis) ###
