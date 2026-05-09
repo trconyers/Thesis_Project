@@ -1,1 +1,1 @@
-### Folder for figure outputs ###
+### A directory for figure outputs ###
