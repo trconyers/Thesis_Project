@@ -1,1 +1,1 @@
-### Folder for table outputs ###
+### A directory for table outputs ###
