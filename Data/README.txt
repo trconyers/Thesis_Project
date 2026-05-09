@@ -1,1 +1,1 @@
-### Folder for referenced data ###
+### A directory for data referenced in scripts ###
