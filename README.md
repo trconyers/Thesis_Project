@@ -1,9 +1,9 @@
 # Genomic Architecture of Polygenic Adaptation in Drosophila melanogaster
 ### Reproducible Bioinformatic Pipeline for E&R and Transcriptomic Datasets
 
-This repository provides a reproducible, relative-path R bioinformatics pipeline developed for my 2026 Master’s Thesis at California State University, Fullerton (Shahrestani Lab, Rose/Burke lineage). The system is engineered to analyze multi-generational selection data from the DEEP (Drosophila Experimental Evolution Populations) resource to map genomic and transcriptomic overlaps across divergent selection regimes.
+This repository provides a reproducible, relative-path R bioinformatics pipeline developed for my 2026 Master’s Thesis at California State University, Fullerton (Shahrestani Lab, Rose lineage). The system is engineered to analyze multi-generational selection data from experimentally evolved _Drosophila_ populations to map genomic and transcriptomic overlaps across divergent selection regimes.
 
-🧬 Archival Record: My core thesis findings and experimental evolution datasets are archived at Zenodo: doi.org
+🧬 Archival Record: My core thesis findings and experimental evolution datasets are archived at Zenodo: doi.org/10.5281/zenodo.19961092
 
 ## Core Capabilities
 *   **Automated Gene-List Overlap Tests:** Quantifies and maps selection candidates across longevity, immunity, and stress-tolerance experimental regimes using custom hyper-geometric and matrix overlap scripts.
