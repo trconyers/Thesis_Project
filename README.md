@@ -1,4 +1,4 @@
-# Genomic Architecture of Polygenic Adaptation in Drosophila melanogaster
+# Genetic Architecture of Longevity & Immunity in _Drosophila melanogaster_
 ### Reproducible Bioinformatic Pipeline for E&R and Transcriptomic Datasets
 
 This repository provides a reproducible, relative-path R bioinformatics pipeline developed for my 2026 Master’s Thesis at California State University, Fullerton (Shahrestani Lab, Rose lineage). The system is engineered to analyze multi-generational selection data from experimentally evolved _Drosophila_ populations to map genomic and transcriptomic overlaps across divergent selection regimes.
