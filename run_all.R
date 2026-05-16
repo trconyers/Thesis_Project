@@ -23,4 +23,4 @@ source("Scripts/04b_go_enrichment_GSEA.R")
 # 5. Theoretical Synthesis: Resistance vs. Tolerance
 source("Scripts/05_Tolerance_Resistance.R")
 
-print("Pipeline execution complete. Plots saved to /results/Graphs and tables saved to /results/Tables.")
+print("Pipeline execution complete. Plots saved to /Results/Graphs and tables saved to /Results/Tables.")
