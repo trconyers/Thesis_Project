@@ -66,7 +66,7 @@ grid.newpage()
 grid.draw(grab)
 rm(gp,grab)
 savePlotAsImage(
-  file = "Graphs/def_type.svg",
+  file = "Results/Graphs/def_type.svg",
   format = "svg",
   width = 1200,
   height = 742
@@ -84,7 +84,7 @@ Defensedat <- Defensedat[Defensedat$Observed.Overlap>0,-2]
 Defensedat$Elements <- unlist(map(.x = strsplit(x = Defensedat$Elements, split = ", "), .f = compose(str_flatten_comma, Gene2SYMBOL)))
 Defensedat$Elements[Defensedat$P.adj>=0.05] <- "non-significant"
 write_excel_csv(Defensedat,
-                file = "Data/def_type.csv",
+                file = "Results/Tables/def_type.csv",
                 append = FALSE,
                 escape = "none")
 save.image()
