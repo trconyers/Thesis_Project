@@ -50,7 +50,7 @@ plot.venn(
     label = "Candidate Genes from Longevity & Immunity Selection (Genomics)", fontsize = 21.5)
 )
 savePlotAsImage(
-  file = "Graphs/Longev_Immun_Genom.svg",
+  file = "Results/Graphs/Longev_Immun_Genom.svg",
   format = "svg",
   width = 1200,
   height = 742
@@ -61,7 +61,7 @@ View(Longev_Immundat.G)
 Longev_Immundat.G$Elements <- str_flatten_comma(Gene2SYMBOL(unlist(strsplit(x = Longev_Immundat.G$Elements, split = ", "))))
 Longev_Immundat.G <- Longev_Immundat.G[,-2]
 write_excel_csv(Longev_Immundat.G,
-                file = "Data/Longev_Immun_Genom.csv",
+                file = "Results/Tables/Longev_Immun_Genom.csv",
                 append = FALSE,
                 escape = "none")
 
@@ -78,7 +78,7 @@ plot.venn(
   )
 )
 savePlotAsImage(
-  file = "Graphs/sel_type_Genom.svg",
+  file = "Results/Graphs/sel_type_Genom.svg",
   format = "svg",
   width = 1200,
   height = 742
@@ -90,7 +90,7 @@ Selectiondat.G <- sort_by.data.frame(x = Selectiondat.G, y = -Selectiondat.G$FE)
 Selectiondat.G <- sort_by.data.frame(x = Selectiondat.G, y = -Selectiondat.G$Degree)
 Selectiondat.G$Elements <- unlist(map(.x = strsplit(x = Selectiondat.G$Elements, split = ", "), .f = compose(str_flatten_comma, Gene2SYMBOL)))
 write_excel_csv(Selectiondat.G,
-                file = "Data/sel_type_Genom.csv",
+                file = "Results/Tables/sel_type_Genom.csv",
                 append = FALSE,
                 escape = "none")
 
@@ -113,7 +113,7 @@ grid.newpage()
 grid.draw(grab)
 rm(gp,grab)
 savePlotAsImage(
-  file = "Graphs/LIS_Genom.svg",
+  file = "Results/Graphs/LIS_Genom.svg",
   format = "svg",
   width = 1200,
   height = 742
@@ -147,7 +147,7 @@ plot.euler(
   )
 )
 savePlotAsImage(
-  file = "Graphs/lifespan_Genom.svg",
+  file = "Results/Graphs/lifespan_Genom.svg",
   format = "svg",
   width = 1200,
   height = 742
@@ -166,7 +166,7 @@ plot.euler(
   )
 )
 savePlotAsImage(
-  file = "Graphs/immune_Genom.svg",
+  file = "Results/Graphs/immune_Genom.svg",
   format = "svg",
   width = 1200,
   height = 742
@@ -185,7 +185,7 @@ plot.euler(
   )
 )
 savePlotAsImage(
-  file = "Graphs/stress_Genom.svg",
+  file = "Results/Graphs/stress_Genom.svg",
   format = "svg",
   width = 1200,
   height = 742
@@ -197,7 +197,7 @@ Longevdat.G <- sort_by.data.frame(x = Longevdat.G, y = -Longevdat.G$Degree)
 Longevdat.G <- Longevdat.G[Longevdat.G$Observed.Overlap>0,]
 Longevdat.G$Elements <- unlist(map(.x = strsplit(x = Longevdat.G$Elements, split = ", "), .f = compose(str_flatten_comma, Gene2SYMBOL)))
 write_excel_csv(Longevdat.G,
-                file = "Data/longevity_pops_Genom.csv",
+                file = "Results/Tables/longevity_pops_Genom.csv",
                 append = FALSE,
                 escape = "none")
 
@@ -206,7 +206,7 @@ Immundat.G <- sort_by.data.frame(x = Immundat.G, y = -Immundat.G$FE)
 Immundat.G <- sort_by.data.frame(x = Immundat.G, y = -Immundat.G$Degree)
 Immundat.G$Elements <- "NA"
 write_excel_csv(Immundat.G,
-                file = "Data/immunity_pops_Genom.csv",
+                file = "Results/Tables/immunity_pops_Genom.csv",
                 append = FALSE,
                 escape = "none")
 
@@ -216,7 +216,7 @@ Stressdat.G <- sort_by.data.frame(x = Stressdat.G, y = -Stressdat.G$Degree)
 Stressdat.G <- Stressdat.G[Stressdat.G$Observed.Overlap>0,]
 Stressdat.G$Elements <- unlist(map(.x = strsplit(x = Stressdat.G$Elements, split = ", "), .f = compose(str_flatten_comma, Gene2SYMBOL)))
 write_excel_csv(Stressdat.G,
-                file = "Data/stress_pops_Genom.csv",
+                file = "Results/Tables/stress_pops_Genom.csv",
                 append = FALSE,
                 escape = "none")
 save.image()
