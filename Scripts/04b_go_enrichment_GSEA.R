@@ -68,7 +68,7 @@ Immun_dot.T <- clusterProfiler::simplify(Immun_enrich.T_comp)
 Immun_dotplot.T <- dotplot(Immun_dot.T, label_format = 32, by = "EnrichRatio", showCategory = 9) + get_theme() + labs(x = "Function", title = "Overrepresented GO Categories in Immunity-Selection Overlaps (Transcriptomics)")
 Immun_dotplot.T
 savePlotAsImage(
-  file = "Graphs/Immun_GOs_Transcriptom.png",
+  file = "Results/Graphs/Immun_GOs_Transcriptom.png",
   format = "png",
   width = 1200,
   height = 742
@@ -125,7 +125,7 @@ Stress_dot.T <- clusterProfiler::simplify(Stress_enrich.T_comp)
 Stress_dotplot.T <- dotplot(Stress_dot.T, label_format = 32, by = "EnrichRatio", showCategory = 4) + get_theme() + labs(x = "Function", title = "Overrepresented GO Categories in Stress-Selection Overlaps (Transcriptomics)")
 Stress_dotplot.T
 savePlotAsImage(
-  file = "Graphs/Stress_GOs_Transcriptom.png",
+  file = "Results/Graphs/Stress_GOs_Transcriptom.png",
   format = "png",
   width = 1200,
   height = 742
@@ -182,7 +182,7 @@ LI_dot.T <- clusterProfiler::simplify(LI_enrich.T_comp)
 LI_dotplot.T <- dotplot(LI_dot.T, label_format = 25, showCategory = 4, by = "EnrichRatio") + get_theme() + labs(x = "Function", title = "Overrepresented GO Categories in Longevity/Immunity-Selection Overlap (Transcriptomics)")
 LI_dotplot.T
 savePlotAsImage(
-  file = "Graphs/Longev_Immun_GOs_Transcriptom.png",
+  file = "Results/Graphs/Longev_Immun_GOs_Transcriptom.png",
   format = "png",
   width = 1200,
   height = 742
@@ -238,7 +238,7 @@ LS_dot.T <- clusterProfiler::simplify(LS_enrich.T_comp)
 LS_dotplot.T <- dotplot(LS_dot.T, label_format = 25, by = "EnrichRatio", showCategory = 3) + get_theme() + labs(x = "Function", title = "Overrepresented GO Categories in Longevity/Stress-Selection Overlap (Transcriptomics)")
 LS_dotplot.T
 savePlotAsImage(
-  file = "Graphs/Longev_Stress_GOs_Transcriptom.png",
+  file = "Results/Graphs/Longev_Stress_GOs_Transcriptom.png",
   format = "png",
   width = 1200,
   height = 742
@@ -247,7 +247,7 @@ savePlotAsImage(
 dotplot_list.T <- cowplot::plot_grid(LI_dotplot.T, LS_dotplot.T, labels = c("A", "B"), ncol = 2)
 dotplot_list.T
 savePlotAsImage(
-  file = "Graphs/Longev_Overlaps_GOs_Transcriptom.png",
+  file = "Results/Graphs/Longev_Overlaps_GOs_Transcriptom.png",
   format = "png",
   width = 1800,
   height = 742
@@ -357,7 +357,7 @@ keep <- unlist(map(.x = sim_clust, .f = names))
 Longev_heat@data <- Longev_heat@data[Longev_heat@data$Gene %fin% keep,]
 Longev_heat
 savePlotAsImage(
-  file = "Graphs/Longev_GSEA_Transcriptom.png",
+  file = "Results/Graphs/Longev_GSEA_Transcriptom.png",
   format = "png",
   width = 1312,
   height = 742
@@ -385,7 +385,7 @@ keep <- unlist(map(.x = sim_clust, .f = names))
 Immun_heat@data <- Immun_heat@data[Immun_heat@data$Gene %fin% keep,]
 Immun_heat
 savePlotAsImage(
-  file = "Graphs/Immun_GSEA_Transcriptom.png",
+  file = "Results/Graphs/Immun_GSEA_Transcriptom.png",
   format = "png",
   width = 1312,
   height = 742
@@ -413,7 +413,7 @@ keep <- unlist(map(.x = sim_clust, .f = names))
 Stress_heat@data <- Stress_heat@data[Stress_heat@data$Gene %fin% keep,]
 Stress_heat
 savePlotAsImage(
-  file = "Graphs/Stress_GSEA_Transcriptom.png",
+  file = "Results/Graphs/Stress_GSEA_Transcriptom.png",
   format = "png",
   width = 1312,
   height = 742
@@ -439,7 +439,7 @@ Longev_Immun_heat <- Longev_Immun_heat@plot_env$p + Longev_Immun_heat@scales$sca
 Longev_Immun_heat@data <- Longev_Immun_heat@data[Longev_Immun_heat@data$Gene %fin% names(tcount(Longev_Immun_heat@data$Gene)[!(tcount(Longev_Immun_heat@data$Gene)==1 & str_detect(string = names(tcount(Longev_Immun_heat@data$Gene)), pattern = "CG"))]),]
 Longev_Immun_heat
 savePlotAsImage(
-  file = "Graphs/Longev_Immun_GSEA_Transcriptom.png",
+  file = "Results/Graphs/Longev_Immun_GSEA_Transcriptom.png",
   format = "png",
   width = 1200,
   height = 742
