@@ -1,1 +1,13 @@
+Jalvingh, K. M., Chang, P. L., Nuzhdin, S. V., & Wertheim, B. (2014). Genomic changes under rapid evolution: Selection for parasitoid resistance. Proceedings of the Royal Society B: Biological Sciences, 281(1779). https://doi.org/10.1098/rspb.2013.2303
 
+Martins, N. E., Faria, V. G., Nolte, V., Schlötterer, C., Teixeira, L., Sucena, É., & Magalhães, S. (2014). Host adaptation to viruses relies on few genes with different cross-resistance properties. Proceedings of the National Academy of Sciences, 111(16), 5938-5943. https://doi.org/10.1073/pnas.1400378111
+
+Shahrestani, P., King, E. G., Ramezan, R., Phillips, M. A., Riddle, M., Thornburg, M., Greenspan, Z. S., Estrella, Y., Garcia, K., Chowdhury, P., Malarat, G., Zhu, M., Rottshaefer, S. M., Wraight, S., Griggs, M., Vandenberg, J., Long, A. D., Clark, A. G., & Lazzaro, B. P. (2021). The molecular architecture of Drosophila melanogaster defense against Beauveria bassiana explored through evolve and resequence and quantitative trait locus mapping. G3 Genes|Genomes|Genetics, 11(12). https://doi.org/10.1093/g3journal/jkab324
+
+Trienens, M., Kurtz, J., & Wertheim, B. (2023). Rapid but narrow – Evolutionary adaptation and transcriptional response of Drosophila melanogaster to toxic mould. Molecular Ecology, 32(11), 2784-2797. https://doi.org/10.1111/mec.16885
+
+Wertheim, B., Kraaijeveld, A. R., Hopkins, M. G., Walther Boer, M., & Godfray, H. C. J. (2011). Functional genomics of the evolution of increased resistance to parasitism in Drosophila. Molecular Ecology, 20(5), 932-949. https://doi.org/10.1111/j.1365-294X.2010.04911.x
+
+Ye, Y. H., Chenoweth, S. F., & McGraw, E. A. (2009). Effective but costly, evolved mechanisms of defense against a virulent opportunistic pathogen in Drosophila melanogaster. PLoS Pathogens, 5(4). https://doi.org/10.1371/journal.ppat.1000385
+
+Zhou, S. O., Arunkumar, R., Irfan, A., Ding, S. D., Leitão, A. B., & Jiggins, F. M. (2024). The evolution of constitutively active humoral immune defenses in Drosophila populations under high parasite pressure. PLoS Pathogens, 20(1). https://doi.org/10.1371/journal.ppat.1011729
