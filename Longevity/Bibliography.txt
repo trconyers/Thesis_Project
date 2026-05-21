@@ -1,0 +1,19 @@
+Barter, T. T., Greenspan, Z. S., Phillips, M. A., Mueller, L. D., Rose, M. R., & Ranz, J. M. (2019). Drosophila transcriptomics with and without ageing. Biogerontology, 20(5), 699-710. https://doi.org/10.1007/s10522-019-09823-4
+
+Burke, M. K., Dunham, J. P., Shahrestani, P., Thornton, K. R., Rose, M. R., & Long, A. D. (2010). Genome-wide analysis of a long-term evolution experiment with Drosophila. Nature, 467(7315), 587-590. https://doi.org/10.1038/nature09352
+
+Carnes, M. U., Campbell, T., Huang, W., Butler, D. G., Carbone, M. A., Duncan, L. H., Harbajan, S. V., King, E. M., Peterson, K. R., Weitzel, A., Zhou, S., & Mackay, T. F. C. (2015). The genomic basis of postponed senescence in Drosophila melanogaster. PLoS ONE, 10(9). https://doi.org/10.1371/journal.pone.0138569
+
+Fabian, D. K., Garschall, K., Klepsatel, P., Santos-Matos, G., Sucena, É., Kapun, M., Lemaitre, B., Schlötterer, C., Arking, R., & Flatt, T. (2018). Evolution of longevity improves immunity in Drosophila. Evolution Letters, 2(6), 567-579. https://doi.org/10.1002/evl3.89
+
+Graves, J. L., Hertweck, K. L., Phillips, M. A., Han, M. V., Cabral, L. G., Barter, T. T., Greer, L. F., Burke, M. K., Mueller, L. D., & Rose, M. R. (2017). Genomics of parallel experimental evolution in Drosophila. Molecular Biology and Evolution, 34(4), 831-842. https://doi.org/10.1093/molbev/msw282
+
+Hoedjes, K. M., van den Heuvel, J., Kapun, M., Keller, L., Flatt, T., & Zwaan, B. J. (2019). Distinct genomic signals of lifespan and life history evolution in response to postponed reproduction and larval diet in Drosophila. Evolution Letters, 3(6), 598-609. https://doi.org/10.1002/evl3.143
+
+Remolina, S. C., Chang, P. L., Leips, J., Nuzhdin, S. V., & Hughes, K. A. (2012). Genomic basis of aging and life-history evolution in Drosophila melanogaster. Evolution, 66(11), 3390-3403. https://doi.org/10.1111/j.1558-5646.2012.01710.x
+
+Sarup, P., Sørensen, P., & Loeschcke, V. (2011). Flies selected for longevity retain a young gene expression profile. AGE, 33(1), 69-80. https://doi.org/10.1007/s11357-010-9162-8
+
+Sørensen, J. G., Nielsen, M. M., & Loeschcke, V. (2007). Gene expression profile analysis of Drosophila melanogaster selected for resistance to environmental stressors. Journal of Evolutionary Biology, 20(4), 1624-1636. https://doi.org/10.1111/j.1420-9101.2007.01326.x
+
+Wilson, R. H., Lai, C. Q., Lyman, R. F., & Mackay, T. F. C. (2013). Genomic response to selection for postponed senescence in Drosophila. Mechanisms of Ageing and Development, 134(3-4), 79-88. https://doi.org/10.1016/j.mad.2012.11.003
