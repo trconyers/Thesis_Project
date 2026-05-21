@@ -1,1 +1,19 @@
+Erkosar, B., Dupuis, C., Cavigliasso, F., Savary, L., Kremmer, L., Gallart-Ayala, H., Ivanisevic, J., & Kawecki, T. J. (2023). Evolutionary adaptation to juvenile malnutrition impacts adult metabolism and impairs adult fitness in Drosophila. eLife, 12. https://doi.org/10.7554/eLife.92465
 
+Griffin, P. C., Hangartner, S. B., Fournier-Level, A., & Hoffmann, A. A. (2017). Genomic trajectories to desiccation resistance: Convergence and divergence among replicate selected Drosophila lines. Genetics, 205(2), 871-890. https://doi.org/10.1534/genetics.116.187104
+
+Hardy, C. M., Burke, M. K., Everett, L. J., Han, M. V., Lantz, K. M., & Gibbs, A. G. (2018). Genome-wide analysis of starvation-selected Drosophila melanogaster—A genetic model of obesity. Molecular Biology and Evolution, 35(1), 50-65. https://doi.org/10.1093/molbev/msx254
+
+Kang, L., Aggarwal, D. D., Rashkovetsky, E., Korol, A. B., & Michalak, P. (2016). Rapid genomic changes in Drosophila melanogaster adapting to desiccation stress in an experimental evolution system. BMC Genomics, 17(1), 233. https://doi.org/10.1186/s12864-016-2556-y
+
+Kawecki, T. J., Erkosar, B., Dupuis, C., Hollis, B., Stillwell, R. C., & Kapun, M. (2021). The genomic architecture of adaptation to larval malnutrition points to a trade-off with adult starvation resistance in Drosophila. Molecular Biology and Evolution, 38(7), 2732-2749. https://doi.org/10.1093/molbev/msab061
+
+Michalak, P., Kang, L., Schou, M. F., Garner, H. R., & Loeschcke, V. (2019). Genomic signatures of experimental adaptive radiation in Drosophila. Molecular Ecology, 28(3), 600-614. https://doi.org/10.1111/mec.14917
+
+Phillips, M. A., Rutledge, G. A., Kezos, J. N., Greenspan, Z. S., Talbott, A., Matty, S., Arain, H., Mueller, L. D., Rose, M. R., & Shahrestani, P. (2018). Effects of evolutionary history on genome wide and phenotypic convergence in Drosophila populations. BMC Genomics, 19(1), 743. https://doi.org/10.1186/s12864-018-5118-7
+
+Sørensen, J. G., Nielsen, M. M., & Loeschcke, V. (2007). Gene expression profile analysis of Drosophila melanogaster selected for resistance to environmental stressors. Journal of Evolutionary Biology, 20(4), 1624-1636. https://doi.org/10.1111/j.1420-9101.2007.01326.x
+
+Telonis-Scott, M., Gane, M., DeGaris, S., Sgrò, C. M., & Hoffmann, A. A. (2012). High resolution mapping of candidate alleles for desiccation resistance in Drosophila melanogaster under selection. Molecular Biology and Evolution, 29(5), 1335-1351. https://doi.org/10.1093/molbev/msr294
+
+Zhou, D., Udpa, N., Gersten, M., Visk, D. W., Bashir, A., Xue, J., Frazer, K. A., Posakony, J. W., Subramaniam, S., Bafna, V., & Haddad, G. G. (2011). Experimental selection of hypoxia-tolerant Drosophila melanogaster. Proceedings of the National Academy of Sciences, 108(6), 2349-2354. https://doi.org/10.1073/pnas.1010643108
