@@ -21,7 +21,7 @@ set.seed(1234)
 Sys.setenv(RCMDCHECK_ERROR_ON = "error")
 options(defaultPackages = c(.bioc, .init_pkgs, .my_pkgs))
 # Might need to do this:
-# xfun::pkg_attach(options("defaultPackages")$defaultPackages)
+xfun::pkg_attach(options("defaultPackages")$defaultPackages)
 
 #####CUSTOM FUNCTIONS#####
 as.List <- partial(.f = as, Class = "CompressedList")
