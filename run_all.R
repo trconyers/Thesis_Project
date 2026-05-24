@@ -2,6 +2,9 @@
 # Author: Taryn Conyers-Casey
 # Purpose: Execute full analysis pipeline from raw data to immunity comparisons
 
+# Initialize environment
+source(".Rprofile")
+
 # 0. Load global functions and setup relative paths
 source("Scripts/00_misc_functions.R")
 
