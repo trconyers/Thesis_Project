@@ -1,5 +1,5 @@
 ## track type=bedGraph name="nonsynon" description="AA changing SNPs"
-chromosome  start_0  end  L10FET
+chromosome	start_0	end	L10FET
 chrX	30346	30347	0.224082
 chrX	34468	34469	0.157069
 chrX	42100	42101	0.2501
