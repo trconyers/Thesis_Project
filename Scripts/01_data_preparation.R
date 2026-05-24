@@ -21,10 +21,10 @@ dna <- readDNAStringSet("misc/dmel-all-chromosome-r6.61.fa.gz")
 names(dna) <- str_split_i(string = names(dna), pattern = " ", i = 1)
 names(dna) <- UCSC_cnvrt(names(dna))
 names(dna) <- paste0("chr", names(dna))
-writeXStringSet(x = dna, filepath = "misc/dmel-all-chromosome-r6.61.fa.gz")
+writeXStringSet(x = dna, filepath = "misc/dmel-all-chromosome-r6.61.fasta")
 rm(dna)
 
-fastaTo2bit("misc/dmel-all-chromosome-r6.61.fa.gz",
+fastaTo2bit("misc/dmel-all-chromosome-r6.61.fasta",
             "misc/seqs/dmel-r6.61.2bit")
 destdir <- tempdir()
 forgeBSgenomeDataPkg(
@@ -35,7 +35,7 @@ forgeBSgenomeDataPkg(
   verbose = TRUE
 )
 
-setwd(destdir)
+setwd(file.path(destdir, "BSgenome.Dmelanogaster.FlyBase.dm6"))
 pkg <- pkgbuild::build(binary = TRUE, manual = TRUE)
 setwd(wd)
 
@@ -59,6 +59,7 @@ mcolnames <- function(x) compose(colnames, mcols)(x)
 }
 
 GTFgr <- import.gff2(gtfFile)
+GTFgr[GTFgr$gene_id=="FBgn0013687"] <- NULL
 seqlevels(GTFgr) <- UCSC_cnvrt(seqlevels(GTFgr))
 seqlevels(GTFgr) <- paste0("chr", seqlevels(GTFgr))
 mcolnames(GTFgr) <- str_replace(string = mcolnames(GTFgr), pattern = "symbol", replacement = "name")
@@ -81,4 +82,5 @@ start(dmel_gr[problems[3:4]]) <- start(dmel_gr[problems[3:4]]) - 2
 rm(GTFgr,transcripts,genes,problems)
 
 dmel_txdb <- txdbmaker::makeTxDbFromGRanges(dmel_gr, taxonomyId = 7227)
+rm(destdir,pkg,wd)
 save.image()
