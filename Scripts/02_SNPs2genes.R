@@ -67,7 +67,10 @@ gene_mapper <- function (chromosome, start, end) {
 }
 
 ##################### Map coords to genes. #####################
-Burke_data <- as.data.frame(read_tsv("Longevity/Genomics/Burke_2010/Burke_SNPs.tsv"))
+Burke_data <- dmel_r5_to_r6(input_file = "Longevity/Genomics/Burke_2010/Old_Coords.txt", output_file = "Longevity/Genomics/Burke_2010/mapped_coordinates.tsv")
+Burke_SNPs <- as.data.frame(read_tsv("Longevity/Genomics/Burke_2010/AA.Genic.txt", skip = 1))
+Burke_data <- cbind.data.frame(Burke_data, L10FET.ACOvCO = Burke_SNPs$L10FET)
+write_tsv(x = Burke_data, file = "Longevity/Genomics/Burke_2010/Burke_SNPs.tsv")
 Burke_data <- Burke_data[Burke_data$L10FET.ACOvCO>4, ]
 Burke_genes <- gene_mapper(chromosome = Burke_data$chromosome, start = Burke_data$start, end = Burke_data$end)
 Burke <- data.frame(check.names = FALSE,
