@@ -83,7 +83,10 @@ Burke <- data.frame(check.names = FALSE,
                     `Direction (Transcriptomics)` = NA_character_
 )
 ###
-Graves_data <- as.data.frame(read_tsv("Longevity/Genomics/Graves_2017/Graves_SNPs.tsv"))
+Graves_data <- dmel_r5_to_r6(input_file = "Longevity/Genomics/Graves_2017/Old_Coords.txt", output_file = "Longevity/Genomics/Graves_2017/mapped_coordinates.tsv")
+Graves_SNPs <- as.data.frame(read_tsv("Longevity/Genomics/Graves_2017/SNP_cmh_pvalue.txt"))
+Graves_data <- cbind.data.frame(Graves_data, ACO_CO_pval = Graves_SNPs$ACO_CO_pval, AO_nCO_pval = Graves_SNPs$AO_nCO_pval)
+write_tsv(x = Graves_data, file = "Longevity/Genomics/Graves_2017/Graves_SNPs.tsv")
 Graves_data <- Graves_data[which(Graves_data$ACO_CO_pval < 5.67e-145 | Graves_data$AO_nCO_pval < 1.64e-166), ]
 Graves_genes <- gene_mapper(chromosome = Graves_data$chromosome, start = Graves_data$start, end = Graves_data$end)
 Graves <- data.frame(check.names = FALSE,
