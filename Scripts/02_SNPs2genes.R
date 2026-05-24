@@ -22,6 +22,15 @@ dmel_r5_to_r6 <- function (input_file, output_file, use_WSL = TRUE) {
   }
   system(command = paste(shell_path, cmd_flag, perl, "misc/dmel_r5_to_r6_converter.pl --input", 
                          input_file, "--output", output_file))
+  mapped_coordinates <- as.data.frame(read_tsv(output_file, skip = 4))
+  r6_coordinates <- mapped_coordinates$Converted
+  coords_list <- purrr::list_transpose(strsplit(x = r6_coordinates, split = ":"))
+  coords_list[[2]] <- as.integer(coords_list[[2]])
+  coords_list <- c(coords_list, coords_list[2])
+  names(coords_list) <- c("chromosome", "start", "end")
+  coords <- list2DF(coords_list)
+  coords$chromosome <- UCSC_cnvrt(coords$chromosome)
+  return(coords)
 }
 
 gene_mapper <- function (chromosome, start, end) {
@@ -84,7 +93,8 @@ Graves <- data.frame(check.names = FALSE,
                      `Direction (Transcriptomics)` = NA_character_
 )
 ###
-Carnes_SNP_data <- as.data.frame(read_tsv("Longevity/Genomics/Carnes_2015/Carnes_SNPs.tsv"))
+Carnes_SNP_data <- dmel_r5_to_r6(input_file = "Longevity/Genomics/Carnes_2015/Old_Coords.txt", output_file = "Longevity/Genomics/Carnes_2015/mapped_coordinates.tsv")
+write_tsv(x = Carnes_SNP_data, file = "Longevity/Genomics/Carnes_2015/Carnes_SNPs.tsv")
 Carnes_SNP_genes <- gene_mapper(chromosome = Carnes_SNP_data$chromosome, start = Carnes_SNP_data$start, end = Carnes_SNP_data$end)
 Carnes_SNPs <- data.frame(check.names = FALSE,
                      `Candidate FB IDs` = Carnes_SNP_genes,
@@ -96,7 +106,8 @@ Carnes_SNPs <- data.frame(check.names = FALSE,
                      `Direction (Transcriptomics)` = NA_character_
 )
 ###
-Remolina_data <- as.data.frame(read_tsv("Longevity/Genomics/Remolina_2012/Remolina_SNPs.tsv"))
+Remolina_data <- dmel_r5_to_r6(input_file = "Longevity/Genomics/Remolina_2012/Old_Coords.txt", output_file = "Longevity/Genomics/Remolina_2012/mapped_coordinates.tsv")
+write_tsv(x = Remolina_data, file = "Longevity/Genomics/Remolina_2012/Remolina_SNPs.tsv")
 Remolina_genes <- gene_mapper(chromosome = Remolina_data$chromosome, start = Remolina_data$start, end = Remolina_data$end)
 Remolina <- data.frame(check.names = FALSE,
                        `Candidate FB IDs` = Remolina_genes,
@@ -120,7 +131,8 @@ Hoedjes <- data.frame(check.names = FALSE,
                       `Direction (Transcriptomics)` = NA_character_
 )
 ###
-Fabian_data <- as.data.frame(read_tsv("Longevity/Genomics/Fabian_2018/Fabian_SNPs.tsv"))
+Fabian_data <- dmel_r5_to_r6(input_file = "Longevity/Genomics/Fabian_2018/Old_Coords.txt", output_file = "Longevity/Genomics/Fabian_2018/mapped_coordinates.tsv")
+write_tsv(x = Fabian_data, file = "Longevity/Genomics/Fabian_2018/Fabian_SNPs.tsv")
 Fabian_genes <- gene_mapper(chromosome = Fabian_data$chromosome, start = Fabian_data$start, end = Fabian_data$end)
 Fabian <- data.frame(check.names = FALSE,
                      `Candidate FB IDs` = Fabian_genes,
@@ -132,7 +144,8 @@ Fabian <- data.frame(check.names = FALSE,
                      `Direction (Transcriptomics)` = NA_character_
 )
 ###
-Jalvingh_data <- as.data.frame(read_tsv("Immunity/Genomics/Jalvingh_2014/Jalvingh_SNPs.tsv"))
+Jalvingh_data <- dmel_r5_to_r6(input_file = "Immunity/Genomics/Jalvingh_2014/Old_Coords.txt", output_file = "Immunity/Genomics/Jalvingh_2014/mapped_coordinates.tsv")
+write_tsv(x = Jalvingh_data, file = "Immunity/Genomics/Jalvingh_2014/Jalvingh_SNPs.tsv")
 Jalvingh_genes <- gene_mapper(chromosome = Jalvingh_data$chromosome, start = Jalvingh_data$start, end = Jalvingh_data$end)
 Jalvingh <- data.frame(check.names = FALSE,
                        `Candidate FB IDs` = Jalvingh_genes,
@@ -156,7 +169,8 @@ Shahrestani <- data.frame(check.names = FALSE,
                           `Direction (Transcriptomics)` = NA_character_
 )
 ###
-Martins_data <- as.data.frame(read_tsv("Immunity/Genomics/Martins_2014/Martins_SNPs.tsv"))
+Martins_data <- dmel_r5_to_r6(input_file = "Immunity/Genomics/Martins_2014/Old_Coords.txt", output_file = "Immunity/Genomics/Martins_2014/mapped_coordinates.tsv")
+write_tsv(x = Martins_data, file = "Immunity/Genomics/Martins_2014/Martins_SNPs.tsv")
 Martins_genes <- gene_mapper(chromosome = Martins_data$chromosome, start = Martins_data$start, end = Martins_data$end)
 Martins <- data.frame(check.names = FALSE,
                       `Candidate FB IDs` = Martins_genes,
@@ -168,7 +182,8 @@ Martins <- data.frame(check.names = FALSE,
                       `Direction (Transcriptomics)` = NA_character_
 )
 ###
-Kang_data <- as.data.frame(read_tsv("Stress/Genomics/Kang_2016/Kang_SNPs.tsv"))
+Kang_data <- dmel_r5_to_r6(input_file = "Stress/Genomics/Kang_2016/Old_Coords.txt", output_file = "Stress/Genomics/Kang_2016/mapped_coordinates.tsv")
+write_tsv(x = Kang_data, file = "Stress/Genomics/Kang_2016/Kang_SNPs.tsv")
 Kang_genes <- gene_mapper(chromosome = Kang_data$chromosome, start = Kang_data$start, end = Kang_data$end)
 Kang <- data.frame(check.names = FALSE,
                    `Candidate FB IDs` = Kang_genes,
@@ -192,7 +207,8 @@ Kawecki <- data.frame(check.names = FALSE,
                       `Direction (Transcriptomics)` = NA_character_
 )
 ###
-TS_data <- as.data.frame(read_tsv("Stress/Genomics/Telonis-Scott_2012/TS_SNPs.tsv"))
+TS_data <- dmel_r5_to_r6(input_file = "Stress/Genomics/Telonis-Scott_2012/Old_Coords.txt", output_file = "Stress/Genomics/Telonis-Scott_2012/mapped_coordinates.tsv")
+write_tsv(x = TS_data, file = "Stress/Genomics/Telonis-Scott_2012/TS_SNPs.tsv")
 TS_genes <- gene_mapper(chromosome = TS_data$chromosome, start = TS_data$start, end = TS_data$end)
 TS <- data.frame(check.names = FALSE,
                  `Candidate FB IDs` = TS_genes,
@@ -220,7 +236,8 @@ Griffin <- data.frame(check.names = FALSE,
                       `Direction (Transcriptomics)` = NA_character_
 )
 ###
-Zhou.11_data <- as.data.frame(read_tsv("Stress/Genomics/Zhou_2011/Zhou_SNPs.tsv"))
+Zhou.11_data <- dmel_r5_to_r6(input_file = "Stress/Genomics/Zhou_2011/Old_Coords.txt", output_file = "Stress/Genomics/Zhou_2011/mapped_coordinates.tsv")
+write_tsv(x = Zhou.11_data, file = "Stress/Genomics/Zhou_2011/Zhou_SNPs.tsv")
 Zhou.11_genes <- gene_mapper(chromosome = Zhou.11_data$chromosome, start = Zhou.11_data$start, end = Zhou.11_data$end)
 Zhou.11 <- data.frame(check.names = FALSE,
                    `Candidate FB IDs` = Zhou.11_genes,
