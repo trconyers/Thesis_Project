@@ -255,7 +255,10 @@ Zhou.11 <- data.frame(check.names = FALSE,
                    `Direction (Transcriptomics)` = NA_character_
 )
 ###
-Michalak_data <- as.data.frame(read_tsv("Stress/Genomics/Michalak_2019/Michalak_SNPs.tsv"))
+Michalak_data <- dmel_r5_to_r6(input_file = "Stress/Genomics/Michalak_2019/Old_Coords.txt", output_file = "Stress/Genomics/Michalak_2019/mapped_coordinates.tsv")
+Michalak_SNPs <- as.data.frame(read_excel("mec14917-sup-0002-supinfo.xlsx", sheet = "Dataset S2.", skip = 4))
+Michalak_data <- cbind.data.frame(Michalak_data, SELECTION_TYPE = Michalak_SNPs$SELECTION_TYPE)
+write_tsv(x = Michalak_data, file = "Stress/Genomics/Michalak_2019/Michalak_SNPs.tsv")
 Michalak_CS <- Michalak_data[Michalak_data$SELECTION_TYPE=="cs",]
 Michalak_genes.CS <- gene_mapper(chromosome = Michalak_CS$chromosome, start = Michalak_CS$start, end = Michalak_CS$end)
 Michalak.CS <- data.frame(check.names = FALSE,
