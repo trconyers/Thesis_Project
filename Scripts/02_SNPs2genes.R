@@ -4,7 +4,27 @@ library(Rfast)
 library(IRanges)
 library(readr)
 
-gene_mapper <- function(chromosome, start, end) {
+dmel_r5_to_r6 <- function (input_file, output_file, use_WSL = TRUE) {
+  perl <- character()
+  if (.Platform$OS.type == "windows") {
+    if (use_WSL) {
+      shell_path <- "wsl.exe"
+      cmd_flag <- "-e"
+    } else {
+      shell_path <- Sys.getenv("COMSPEC")
+      cmd_flag <- "/c"
+      perl <- "perl.exe"
+    }
+  } else {
+    use_WSL <- FALSE
+    shell_path <- Sys.getenv("SHELL")
+    cmd_flag <- "-c"
+  }
+  system(command = paste(shell_path, cmd_flag, perl, "misc/dmel_r5_to_r6_converter.pl --input", 
+                         input_file, "--output", output_file))
+}
+
+gene_mapper <- function (chromosome, start, end) {
   if (All(end - start == 0)) {
     query <- GPos(
       seqnames = Rle(paste0("chr", chromosome)),
