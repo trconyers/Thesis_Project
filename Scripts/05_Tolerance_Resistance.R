@@ -3,7 +3,7 @@ library(writexl)
 library(rstudioapi)
 library(SuperExactTest)
 
-Gene.Table <- as.data.frame(read_excel("Data/Gene Table.xlsx"))
+Gene.Table <- as.data.frame(read_excel("Data/Gene_Table.xlsx"))
 Gene.Table$`Populations Used`[Gene.Table$`Populations Used` %fin% c("B vs. O (new)", "B vs. O (old)")] <- "B-type vs. O-type"
 Multi_Pops <- Gene.Table[, 1:3]
 rownames(Multi_Pops) <- rownames(Gene.Table)
