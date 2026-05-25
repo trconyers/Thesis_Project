@@ -22,13 +22,19 @@ dmel_r5_to_r6 <- function (input_file, output_file, use_WSL = TRUE) {
   }
   system(command = paste(shell_path, cmd_flag, perl, "misc/dmel_r5_to_r6_converter.pl --input", 
                          input_file, "--output", output_file))
-  mapped_coordinates <- as.data.frame(read_tsv(output_file, skip = 4))
+  mapped_coordinates <- unique.data.frame(as.data.frame(read_tsv(output_file, skip = 4)))
   r6_coordinates <- mapped_coordinates$Converted
-  coords_list <- purrr::list_transpose(strsplit(x = r6_coordinates, split = ":"))
-  coords_list[[2]] <- as.integer(coords_list[[2]])
-  coords_list <- c(coords_list, coords_list[2])
+  if (Any(str_detect(string = r6_coordinates, pattern = ".."))) {
+    coords_list <- purrr::list_transpose(str_split(string = r6_coordinates, pattern = "[:punct:]"))[-3]
+    coords_list[2:3] <- map(.x = coords_list[2:3], .f = as.integer)
+  } else {
+    coords_list <- purrr::list_transpose(strsplit(x = r6_coordinates, split = ":"))
+    coords_list[[2]] <- as.integer(coords_list[[2]])
+    coords_list <- c(coords_list, coords_list[2])
+  }
   names(coords_list) <- c("chromosome", "start", "end")
   coords <- list2DF(coords_list)
+  rownames(coords) <- mapped_coordinates$`#Original`
   coords$chromosome <- UCSC_cnvrt(coords$chromosome)
   return(coords)
 }
@@ -53,7 +59,7 @@ gene_mapper <- function (chromosome, start, end) {
   }
   subject <- genes(dmel_txdb)
   subject <- resize(subject, width = (width(subject) + 2000), fix = "center")
-  subject <- trim(subject)
+  subject <- GenomicRanges::trim(subject)
   start(subject[as.character(subject@seqnames) == "chrM" & start(subject) < 0]) <- 1
   if (All(width(query) <= Mins(width(subject)))) {
     hits <- mergeByOverlaps(query, subject, type = "within")
@@ -85,6 +91,7 @@ Burke <- data.frame(check.names = FALSE,
 ###
 Graves_data <- dmel_r5_to_r6(input_file = "Longevity/Genomics/Graves_2017/Old_Coords.txt", output_file = "Longevity/Genomics/Graves_2017/mapped_coordinates.tsv")
 Graves_SNPs <- as.data.frame(read_tsv("Longevity/Genomics/Graves_2017/SNP_cmh_pvalue.txt"))
+Graves_SNPs <- Graves_SNPs[paste(Graves_SNPs$chr, as.integer(Graves_SNPs$pos), sep = ":") %in% rownames(Graves_data),]
 Graves_data <- cbind.data.frame(Graves_data, ACO_CO_pval = Graves_SNPs$ACO_CO_pval, AO_nCO_pval = Graves_SNPs$AO_nCO_pval)
 write_tsv(x = Graves_data, file = "Longevity/Genomics/Graves_2017/Graves_SNPs.tsv")
 Graves_data <- Graves_data[which(Graves_data$ACO_CO_pval < 5.67e-145 | Graves_data$AO_nCO_pval < 1.64e-166), ]
