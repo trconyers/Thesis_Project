@@ -24,7 +24,7 @@ dmel_r5_to_r6 <- function (input_file, output_file, use_WSL = TRUE) {
                          input_file, "--output", output_file))
   mapped_coordinates <- unique.data.frame(as.data.frame(read_tsv(output_file, skip = 4)))
   r6_coordinates <- mapped_coordinates$Converted
-  if (Any(str_detect(string = r6_coordinates, pattern = ".."))) {
+  if (Any(str_detect(string = r6_coordinates, pattern = "\\.\\."))) {
     coords_list <- purrr::list_transpose(str_split(string = r6_coordinates, pattern = "[:punct:]"))[-3]
     coords_list[2:3] <- map(.x = coords_list[2:3], .f = as.integer)
   } else {
@@ -263,7 +263,7 @@ Zhou.11 <- data.frame(check.names = FALSE,
 )
 ###
 Michalak_data <- dmel_r5_to_r6(input_file = "Stress/Genomics/Michalak_2019/Old_Coords.txt", output_file = "Stress/Genomics/Michalak_2019/mapped_coordinates.tsv")
-Michalak_SNPs <- as.data.frame(read_excel("mec14917-sup-0002-supinfo.xlsx", sheet = "Dataset S2.", skip = 4))
+Michalak_SNPs <- as.data.frame(read_excel("Stress/Genomics/Michalak_2019/mec14917-sup-0002-supinfo.xlsx", sheet = "Dataset S2.", skip = 4))
 Michalak_data <- cbind.data.frame(Michalak_data, SELECTION_TYPE = Michalak_SNPs$SELECTION_TYPE)
 write_tsv(x = Michalak_data, file = "Stress/Genomics/Michalak_2019/Michalak_SNPs.tsv")
 Michalak_CS <- Michalak_data[Michalak_data$SELECTION_TYPE=="cs",]
@@ -314,7 +314,7 @@ Michalak <- rbind.data.frame(Michalak.CS, Michalak.DS, Michalak.HEAT, Michalak.S
 rm(Michalak.CS, Michalak.DS, Michalak.HEAT, Michalak.SS)
 
 ############### Compile gene lists and add to Gene_Table ###############
-GenesFromSNPs <- rbind.data.frame(Burke, Graves, Carnes_SNPs, Remolina, Hoedjes, Fabian, Jalvingh, Shahrestani, Martins, Kang, Kawecki, TS, Griffin, Zhou, Michalak)
+GenesFromSNPs <- rbind.data.frame(Burke, Graves, Carnes_SNPs, Remolina, Hoedjes, Fabian, Jalvingh, Shahrestani, Martins, Kang, Kawecki, TS, Griffin, Zhou.11, Michalak)
 Gene_Table <- as.data.frame(read_excel("Data/Gene_Table.xlsx"))
 Gene_Table <- rbind.data.frame(Gene_Table, GenesFromSNPs)
 write_xlsx(Gene_Table, path = "Data/Gene_Table.xlsx", col_names = TRUE)
