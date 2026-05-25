@@ -19,11 +19,12 @@ Stress.Table <- Unique(Gene.Table_EG$`Candidate FB IDs`[Gene.Table_EG$`Selection
 
 Howick_data <- dmel_r5_to_r6(input_file = "Immunity/Tolerance.v.Resistance/Howick_2017/Old_Coords.txt", output_file = "Immunity/Tolerance.v.Resistance/Howick_2017/mapped_coordinates.tsv")
 Howick_SNPs <- as.data.frame(read_excel("Immunity/Tolerance.v.Resistance/Howick_2017/Howick_SNPs.xlsx"))
+Howick_SNPs <- unique.data.frame(Howick_SNPs[Howick_SNPs$SNP %in% rownames(Howick_data),-(3:4)])
 Howick_data <- cbind.data.frame(Howick_data, immun_type = Howick_SNPs$immun_type)
 write_tsv(x = Howick_data, file = "Immunity/Tolerance.v.Resistance/Howick_2017/Howick_SNPs.tsv")
-Howick_Tolerance <- Howick_data[Howick_data$immun_type=="tolerance",]
+Howick_Tolerance <- Howick_data[Howick_data$immun_type=="Tolerance",]
 tolerance <- gene_mapper(chromosome = Howick_Tolerance$chromosome, start = Howick_Tolerance$start, end = Howick_Tolerance$end)
-Howick_Resistance <- Howick_data[Howick_data$immun_type=="resistance",]
+Howick_Resistance <- Howick_data[Howick_data$immun_type=="Resistance",]
 resistance <- gene_mapper(chromosome = Howick_Resistance$chromosome, start = Howick_Resistance$start, end = Howick_Resistance$end)
 
 Tol_Res_list <- list(
