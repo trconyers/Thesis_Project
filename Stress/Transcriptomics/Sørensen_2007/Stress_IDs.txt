@@ -137,7 +137,6 @@ Mdr49
 fus
 CG7881
 Tsp42Ed
-Lmpt
 CG11368
 wdp
 CG3960
