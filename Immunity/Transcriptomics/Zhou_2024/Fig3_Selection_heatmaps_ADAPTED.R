@@ -1,6 +1,3 @@
-### doi:10.17863/CAM.101651 ###
-## https://www.repository.cam.ac.uk/bitstreams/6601be17-a344-4101-99be-7827375bb901/download ##
-
 library(RColorBrewer)
 library(gplots)
 library(edgeR)
