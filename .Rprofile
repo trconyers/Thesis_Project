@@ -15,7 +15,7 @@ setHook(packageEvent("grDevices", "onLoad"), function(...)
 set.seed(1234)
 
 #######ENVIRONMENT########
-.bioc <- c("Biobase", "limma", "annotate", "GEOquery", "GO.db", "clusterProfiler", "GOstats", "topGO")
+.bioc <- c("Biobase", "limma", "annotate", "GEOquery", "clusterProfiler")
 .init_pkgs <- c("base", "codetools", "compiler", "datasets", "grDevices", "tools", "utils", "graphics", "grid", "parallel", "tcltk", "stats", "boot", "cluster", "KernSmooth", "lattice", "methods", "nnet", "rpart", "spatial", "splines", "foreign", "ggplot2", "MASS", "Matrix", "nlme", "stats4", "usethis", "XML", "class", "mgcv", "survival")
 .my_pkgs <- c("AcidDevTools", "AcidGenerics", "AcidTest", "admisc", "assertthat", "BiocManager", "BiocVersion", "bit", "checkmate", "cli", "clipr", "collapse", "colorspace", "cpp11", "crayon", "data.table", "DBI", "fansi", "fastmap", "fastmatch", "generics", "goalie", "gtools", "pbapply", "pkgconfig", "plogr", "plyr", "prettyunits", "R.methodsS3", "R6", "RCurl", "remotes", "Rfast", "rlang", "rstudioapi", "seqinr", "statmod", "stringi", "SuperExactTest", "utf8", "BiocGenerics", "cachem", "callr", "GetoptLong", "gplots", "jamba", "lifecycle", "R.oo", "Rfast2", "tzdb", "xml2", "graph", "memoise", "pkgbuild", "R.utils", "S4Vectors", "vctrs", "AcidBase", "blob", "fgsea", "hms", "pillar", "pkgload", "purrr", "stringr", "tidyselect", "XVector", "installr", "pipette", "progress", "roxygen2", "RSQLite", "rtracklayer", "tibble", "AcidGenomes", "dplyr", "GenomicFeatures", "pkgdown", "readxl", "vroom", "basejump", "devtools", "easy.utils", "readr", "mulea")
 Sys.setenv(RCMDCHECK_ERROR_ON = "error")
