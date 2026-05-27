@@ -3,6 +3,7 @@ library(GenomicFeatures)
 library(Rfast)
 library(IRanges)
 library(readr)
+library(writexl)
 
 dmel_r5_to_r6 <- function (input_file, output_file, use_WSL = TRUE) {
   perl <- character()
