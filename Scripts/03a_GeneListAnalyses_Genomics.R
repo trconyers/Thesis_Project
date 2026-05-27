@@ -25,7 +25,7 @@ for (i in cli_progress_along(seq(all_pops.G))) {
 }
 names(Gene_Table_List.G) <- all_pops.G
 
-########################### Selection Type Overlaps ###########################
+######################### Selection Type Overlaps #########################
 library(rstudioapi)
 library(SuperExactTest)
 
