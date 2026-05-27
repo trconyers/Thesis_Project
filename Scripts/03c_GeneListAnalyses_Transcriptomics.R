@@ -5,7 +5,7 @@ library(writexl)
 
 Gene_Table <- as.data.frame(read_excel("Data/Gene_Table.xlsx"))
 Gene_Table.T <- Gene_Table[Gene_Table$Sequencing=="Transcriptomic",]
-FB_invs <- as.data.frame(read_tsv("Scripts/misc/withdrawns.txt"))
+FB_invs <- as.data.frame(read_tsv("misc/withdrawns.txt", skip = 10))
 Gene_Table.T <-Gene_Table.T[!Gene_Table.T$`Candidate FB IDs` %fin% FB_invs$FBIDs,]
 rm(FB_invs)
 
