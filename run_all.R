@@ -15,9 +15,9 @@ source("Scripts/01_data_preparation.R")
 source("Scripts/02_SNPs2genes.R")
 
 # 3. Perform Overlap Analyses
-source("Scripts/03a_GeneListAnalyses_Genomics.R")
-source("Scripts/03b_GeneListAnalyses_Transcriptomics.R")
-source("Scripts/03c_GeneListAnalyses_Combined.R")
+source("Scripts/03a_GeneListAnalyses_Combined.R")
+source("Scripts/03b_GeneListAnalyses_Genomics.R")
+source("Scripts/03c_GeneListAnalyses_Transcriptomics.R")
 
 # 4. Functional Enrichment
 source("Scripts/04a_go_enrichment_Genomics.R")
