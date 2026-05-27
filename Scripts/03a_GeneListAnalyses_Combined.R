@@ -4,7 +4,7 @@ library(writexl)
 
 Gene_Table <- as.data.frame(read_excel("Data/Gene_Table.xlsx"))
 Gene_Table <- Gene_Table[Gene_Table$`Candidate FB IDs` %fin% protein_coding,]
-FB_invs <- as.data.frame(read_tsv("Scripts/misc/withdrawns.txt"))
+FB_invs <- as.data.frame(read_tsv("misc/withdrawns.txt"))
 Gene_Table <-Gene_Table[!Gene_Table$`Candidate FB IDs` %fin% FB_invs$FBIDs,]
 Gene_Table$`Populations Used`[Gene_Table$`Populations Used` %fin% c("B vs. O (new)", "B vs. O (old)")] <- "B-type vs. O-type"
 rm(FB_invs)
