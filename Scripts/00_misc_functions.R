@@ -8,7 +8,7 @@ quantlabel <- function(Intersections) {
   otab <- p.adjust(otab, method = "BH")
   otab2 <- otab[which(otab < 0.05)]
   sigsets <- names(otab2)
-  foo <- plot.euler(euler.list(Intersections$x), quantities = TRUE)
+  foo <- eulerr:::plot.euler(euler.list(Intersections$x), quantities = TRUE)
   quantlabels <- rep("", length(foo$data$fitted.values))
   quantlabels[foo$data$centers$id] <- as.character(foo$data$centers$quantities)
   allsets <- rownames(foo$data$centers)
@@ -30,7 +30,7 @@ quantlabel.venn <- function(Intersections) {
   otab <- p.adjust(otab, method = "BH")
   otab2 <- otab[which(otab < 0.05)]
   sigsets <- names(otab2)
-  foo <- plot.venn(venn.list(Intersections$x), quantities = TRUE)
+  foo <- eulerr:::plot.venn(venn.list(Intersections$x), quantities = TRUE)
   quantlabels <- rep("", length(foo$data$fitted.values))
   quantlabels[foo$data$centers$id] <- as.character(foo$data$centers$quantities)
   allsets <- rownames(foo$data$centers)
