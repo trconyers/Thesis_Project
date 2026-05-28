@@ -1,4 +1,4 @@
-########################### Selection_ORA_Transcriptomics ###########################
+###################### Selection_ORA_Transcriptomics ######################
 library(GOstats)
 library(org.Dm.eg.db)
 library(clusterProfiler)
@@ -131,7 +131,7 @@ savePlotAsImage(
   height = 742
 )
 
-######################## Longev_Immun/Stress_ORA_Transcriptomics #########################
+################# Longev_Immun/Stress_ORA_Transcriptomics #################
 LI_genes.T <- unname(SYMBOL2Gene(unique(unlist(strsplit(x = Selectiondat.T$Elements[Selectiondat.T$Intersections=="Longevity & Immunity"], split = ", ")))))
 LI_lds.T <- c(is.longevity(LI_genes.T), is.immunity(LI_genes.T), is.stress(LI_genes.T))
 LI_Clusts.T <- list(Lifespan = is.longevity(LI_genes.T), Defense = is.immunity(LI_genes.T), Stress_Response = is.stress(LI_genes.T), Other = setdiff(LI_genes.T, LI_lds.T))
@@ -253,15 +253,11 @@ savePlotAsImage(
   height = 742
 )
 
-########################### Gene_Table edit for GSEA ###########################
+######################## Gene_Table edit for GSEA ########################
 library(readxl)
 library(writexl)
 
-Gene_Table <- as.data.frame(read_excel("Data/Gene_Table.xlsx"))
-Gene_Table.T_GSEA <- Gene_Table[Gene_Table$Sequencing=="Transcriptomic",]
-FB_invs <- as.data.frame(read_tsv("Scripts/misc/withdrawns.txt"))
-Gene_Table.T_GSEA <-Gene_Table.T_GSEA[!Gene_Table.T_GSEA$`Candidate FB IDs` %fin% FB_invs$FBIDs,]
-rm(FB_invs)
+Gene_Table.T_GSEA <- Gene_Table.T
 
 Multi_Pops.T_GSEA <- Gene_Table.T_GSEA[, 1:3]
 rownames(Multi_Pops.T_GSEA) <- rownames(Gene_Table.T_GSEA)
@@ -401,7 +397,7 @@ geneSims <- mgeneSim(unique(Stress_heat@data$Gene), semData = d, measure = "Wang
 dissimilarity <- as.dist(1 - geneSims)
 hcluster <- hclust(dissimilarity)
 dend <- as.dendrogram(hcluster, hang = 0)
-cut_hclust <- dendextend::cutree(dend, h = dendextend::heights_per_k.dendrogram(dend)["59"])
+cut_hclust <- dendextend::cutree(dend, h = dendextend::heights_per_k.dendrogram(dend)["52"])
 sim_clust <- split(x = names(cut_hclust), f = cut_hclust)
 sim_clust <- map(.x = sim_clust, .f = nameVector)
 sim_clust <- mixedSorts(map(.x = sim_clust, .f = function(x) str_remove(string = x, pattern = "CG")))
