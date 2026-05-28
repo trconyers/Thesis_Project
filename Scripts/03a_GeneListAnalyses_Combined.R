@@ -42,13 +42,14 @@ Longev_Immun <- Gene_Lists[c("Longevity", "Immunity")]
 Longev_Immun_Venn <- venn.list(Longev_Immun)
 Longev_Immun_Intersections <- supertest(x = Longev_Immun, n = 13986, degree = seq(Longev_Immun)[-1])
 Longev_Immun_Summ <- SuperExactTest:::summary.msets(Longev_Immun_Intersections)
-plot.venn(
+diagram <- plot.venn(
   Longev_Immun_Venn,
   labels = list(fontsize = 19),
   quantities = list(fontsize = 19, labels = quantlabel.venn(Longev_Immun_Intersections)),
   main = list(
     label = "Candidate Coding Genes from Longevity & Immunity Selection", fontsize = 22.5)
 )
+print(diagram); rm(diagram)
 savePlotAsImage(
   file = "Results/Graphs/Longev_Immun.svg",
   format = "svg",
@@ -67,7 +68,7 @@ write_excel_csv(Longev_Immundat,
 Gene_Venn <- venn.list(Gene_Lists[c("Longevity", "Immunity", "Stress")])
 Selection_Intersections <- supertest(x = Gene_Lists, n = 13986, degree = seq(Gene_Lists)[-1])
 Selection_Summ <- SuperExactTest:::summary.msets(Selection_Intersections)
-plot.venn(
+diagram <- plot.venn(
   Gene_Venn,
   labels = list(fontsize = 19),
   quantities = list(fontsize = 19, labels = quantlabel.venn(Selection_Intersections)),
@@ -76,6 +77,7 @@ plot.venn(
     fontsize = 22.5
   )
 )
+print(diagram); rm(diagram)
 savePlotAsImage(
   file = "Results/Graphs/sel_type.svg",
   format = "svg",
@@ -134,7 +136,7 @@ Stress_Pops_Venn <- euler.list(Gene_Table_List_S)
 
 Longev_Intersections <- supertest(x = Gene_Table_List_L, n = 13986, degree = seq(Gene_Table_List_L)[-1])
 Longev_Summ <- SuperExactTest:::summary.msets(Longev_Intersections)
-plot.euler(
+diagram <- plot.euler(
   Longev_Pops_Venn,
   legend = list(fontsize = 20),
   quantities = list(fontsize = 18, labels = quantlabel(Longev_Intersections)),
@@ -144,6 +146,7 @@ plot.euler(
     x = unit(0.66, "npc")
   )
 )
+print(diagram); rm(diagram)
 savePlotAsImage(
   file = "Results/Graphs/lifespan.svg",
   format = "svg",
@@ -153,7 +156,7 @@ savePlotAsImage(
 
 Immun_Intersections <- supertest(x = Gene_Table_List_I, n = 13986, degree = seq(Gene_Table_List_I)[-1])
 Immun_Summ <- SuperExactTest:::summary.msets(Immun_Intersections)
-plot.euler(
+diagram <- plot.euler(
   Immun_Pops_Venn,
   legend = list(fontsize = 20),
   quantities = list(fontsize = 18, labels = quantlabel(Immun_Intersections)),
@@ -163,6 +166,7 @@ plot.euler(
     x = unit(0.64, "npc")
   )
 )
+print(diagram); rm(diagram)
 savePlotAsImage(
   file = "Results/Graphs/immune.svg",
   format = "svg",
@@ -172,7 +176,7 @@ savePlotAsImage(
 
 Stress_Intersections <- supertest(x = Gene_Table_List_S, n = 13986, degree = seq(Gene_Table_List_S)[-1])
 Stress_Summ <- SuperExactTest:::summary.msets(Stress_Intersections)
-plot.euler(
+diagram <- plot.euler(
   Stress_Pops_Venn,
   legend = list(fontsize = 20),
   quantities = list(fontsize = 18, labels = quantlabel(Stress_Intersections)),
@@ -183,6 +187,7 @@ plot.euler(
     y = unit(1, "npc")
   )
 )
+print(diagram); rm(diagram)
 savePlotAsImage(
   file = "Results/Graphs/stress.svg",
   format = "svg",
