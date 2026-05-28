@@ -231,7 +231,7 @@ library(writexl)
 
 Gene_Table <- as.data.frame(read_excel("Data/Gene_Table.xlsx"))
 Gene_Table.T_Up <- Gene_Table[Gene_Table$Sequencing=="Transcriptomic" & Gene_Table$`Direction (Transcriptomics)`=="Up",]
-FB_invs <- as.data.frame(read_tsv("Scripts/misc/withdrawns.txt"))
+FB_invs <- as.data.frame(read_tsv("misc/withdrawns.txt"))
 Gene_Table.T_Up <-Gene_Table.T_Up[!Gene_Table.T_Up$`Candidate FB IDs` %fin% FB_invs$FBIDs,]
 rm(FB_invs)
 
@@ -457,7 +457,7 @@ library(writexl)
 
 Gene_Table <- as.data.frame(read_excel("Data/Gene_Table.xlsx"))
 Gene_Table.T_Down <- Gene_Table[Gene_Table$Sequencing=="Transcriptomic" & Gene_Table$`Direction (Transcriptomics)`=="Down",]
-FB_invs <- as.data.frame(read_tsv("Scripts/misc/withdrawns.txt"))
+FB_invs <- as.data.frame(read_tsv("misc/withdrawns.txt"))
 Gene_Table.T_Down <-Gene_Table.T_Down[!Gene_Table.T_Down$`Candidate FB IDs` %fin% FB_invs$FBIDs,]
 rm(FB_invs)
 
