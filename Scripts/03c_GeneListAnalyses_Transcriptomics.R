@@ -229,10 +229,7 @@ write_excel_csv(Stressdat.T,
 library(readxl)
 library(writexl)
 
-Gene_Table <- as.data.frame(read_excel("Data/Gene_Table.xlsx"))
 Gene_Table.T_Up <- Gene_Table.T[Gene_Table.T$`Direction (Transcriptomics)`=="Up",]
-FB_invs <- as.data.frame(read_tsv("misc/withdrawns.txt"))
-Gene_Table.T_Up <-Gene_Table.T_Up[!Gene_Table.T_Up$`Candidate FB IDs` %fin% FB_invs$FBIDs,]
 rm(FB_invs)
 
 Multi_Pops.T_Up <- Gene_Table.T_Up[, 1:3]
@@ -455,10 +452,7 @@ write_excel_csv(Stressdat.T_Up,
 library(readxl)
 library(writexl)
 
-Gene_Table <- as.data.frame(read_excel("Data/Gene_Table.xlsx"))
 Gene_Table.T_Down <- Gene_Table.T[Gene_Table.T$`Direction (Transcriptomics)`=="Down",]
-FB_invs <- as.data.frame(read_tsv("misc/withdrawns.txt"))
-Gene_Table.T_Down <-Gene_Table.T_Down[!Gene_Table.T_Down$`Candidate FB IDs` %fin% FB_invs$FBIDs,]
 rm(FB_invs)
 
 Multi_Pops.T_Down <- Gene_Table.T_Down[, 1:3]
