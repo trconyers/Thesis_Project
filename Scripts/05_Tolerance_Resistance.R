@@ -4,6 +4,8 @@ library(rstudioapi)
 library(SuperExactTest)
 
 Gene.Table <- as.data.frame(read_excel("Data/Gene_Table.xlsx"))
+FB_invs <- as.data.frame(read_tsv("misc/withdrawns.txt", skip = 9))
+Gene.Table <-Gene.Table[!Gene.Table$`Candidate FB IDs` %fin% FB_invs$FBIDs,]
 Gene.Table$`Populations Used`[Gene.Table$`Populations Used` %fin% c("B vs. O (new)", "B vs. O (old)")] <- "B-type vs. O-type"
 Multi_Pops <- Gene.Table[, 1:3]
 rownames(Multi_Pops) <- rownames(Gene.Table)
@@ -33,8 +35,8 @@ Tol_Res_list <- list(
   Longevity = Longev.Table,
   Immunity = Immun.Table,
   Stress = Stress.Table,
-  Tolerance = tolerance,
-  Resistance = resistance
+  Tolerance = FB2EG(tolerance),
+  Resistance = FB2EG(resistance)
 )
 Tol.Res_obj <- supertest(x = Tol_Res_list, n = 17871, degree = seq(Tol_Res_list)[-1])
 
