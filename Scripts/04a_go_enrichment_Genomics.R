@@ -66,7 +66,7 @@ Longev_enrich.G_comp@compareClusterResult$p.adjust <- Longevity_ora.G_summ[Longe
 Longev_enrich.G_comp@compareClusterResult$EnrichRatio <- (Longev_enrich.G_comp@compareClusterResult$Count)/(as.numeric(gsub("/.*$", "", Longev_enrich.G_comp@compareClusterResult$BgRatio)))
 Longev_dot.G <- clusterProfiler::simplify(Longev_enrich.G_comp)
 Longev_dotplot.G <- dotplot(Longev_dot.G, label_format = 32, by = "EnrichRatio", showCategory = 4) + get_theme() + labs(x = "Function", title = "Overrepresented GO Categories in Longevity-Selection Overlaps (Genomics)")
-Longev_dotplot.G
+plot(Longev_dotplot.G)
 savePlotAsImage(
   file = "Results/Graphs/Longev_GOs_Genom.png",
   format = "png",
@@ -123,7 +123,7 @@ Stress_enrich.G_comp@compareClusterResult$p.adjust <- Stress_ora.G_summ[Stress_e
 Stress_enrich.G_comp@compareClusterResult$EnrichRatio <- (Stress_enrich.G_comp@compareClusterResult$Count)/(as.numeric(gsub("/.*$", "", Stress_enrich.G_comp@compareClusterResult$BgRatio)))
 Stress_dot.G <- clusterProfiler::simplify(Stress_enrich.G_comp)
 Stress_dotplot.G <- dotplot(Stress_dot.G, label_format = 32, by = "EnrichRatio", showCategory = 4) + get_theme() + labs(x = "Function", title = "Overrepresented GO Categories in Stress-Selection Overlaps (Genomics)")
-Stress_dotplot.G
+plot(Stress_dotplot.G)
 savePlotAsImage(
   file = "Results/Graphs/Stress_GOs_Genom.png",
   format = "png",
@@ -180,7 +180,7 @@ LI_enrich.G_comp@compareClusterResult$p.adjust <- LI_ora.G_summ[LI_enrich.G_comp
 LI_enrich.G_comp@compareClusterResult$EnrichRatio <- (LI_enrich.G_comp@compareClusterResult$Count)/(as.numeric(gsub("/.*$", "", LI_enrich.G_comp@compareClusterResult$BgRatio)))
 LI_dot.G <- clusterProfiler::simplify(LI_enrich.G_comp)
 LI_dotplot.G <- dotplot(LI_dot.G, label_format = 25, showCategory = 3, by = "EnrichRatio") + get_theme() + labs(x = "Function", title = "Overrepresented GO Categories in Longevity/Immunity-Selection Overlap (Genomics)")
-LI_dotplot.G
+plot(LI_dotplot.G)
 savePlotAsImage(
   file = "Results/Graphs/Longev_Immun_GOs_Genom.png",
   format = "png",
@@ -236,7 +236,7 @@ LS_enrich.G_comp@compareClusterResult$p.adjust <- LS_ora.G_summ[LS_enrich.G_comp
 LS_enrich.G_comp@compareClusterResult$EnrichRatio <- (LS_enrich.G_comp@compareClusterResult$Count)/(as.numeric(gsub("/.*$", "", LS_enrich.G_comp@compareClusterResult$BgRatio)))
 LS_dot.G <- clusterProfiler::simplify(LS_enrich.G_comp)
 LS_dotplot.G <- dotplot(LS_dot.G, label_format = 25, showCategory = 3, by = "EnrichRatio") + get_theme() + labs(x = "Function", title = "Overrepresented GO Categories in Longevity/Stress-Selection Overlap (Genomics)")
-LS_dotplot.G
+plot(LS_dotplot.G)
 savePlotAsImage(
   file = "Results/Graphs/Longev_Stress_GOs_Genom.png",
   format = "png",
@@ -245,7 +245,7 @@ savePlotAsImage(
 )
 
 dotplot_list.G <- cowplot::plot_grid(LI_dotplot.G, LS_dotplot.G, labels = c("A", "B"), ncol = 2)
-dotplot_list.G
+plot(dotplot_list.G)
 savePlotAsImage(
   file = "Results/Graphs/Longev_Overlaps_GOs_Genom.png",
   format = "png",
