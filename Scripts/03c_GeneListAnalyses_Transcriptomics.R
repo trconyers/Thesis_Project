@@ -1,4 +1,4 @@
-############################################################### Full analysis ###############################################################
+############################## Full analysis ##############################
 ########################### Gene_Table edit ###########################
 library(readxl)
 library(writexl)
@@ -25,7 +25,7 @@ for (i in cli_progress_along(seq(all_pops.T))) {
 }
 names(Gene_Table_List.T) <- all_pops.T
 
-########################### Selection Type Overlaps ###########################
+######################### Selection Type Overlaps #########################
 library(rstudioapi)
 library(SuperExactTest)
 
@@ -224,7 +224,7 @@ write_excel_csv(Stressdat.T,
                 append = FALSE,
                 escape = "none")
 
-############################################################### Up-regulated ###############################################################
+############################## Up-regulated ##############################
 ########################### Gene_Table edit ###########################
 library(readxl)
 library(writexl)
@@ -251,7 +251,7 @@ for (i in cli_progress_along(seq(all_pops.T_Up))) {
 }
 names(Gene_Table_List.T_Up) <- all_pops.T_Up
 
-########################### Selection Type Overlaps ###########################
+######################### Selection Type Overlaps #########################
 library(rstudioapi)
 library(SuperExactTest)
 
@@ -450,7 +450,7 @@ write_excel_csv(Stressdat.T_Up,
                 append = FALSE,
                 escape = "none")
 
-############################################################### Down-regulated ###############################################################
+############################# Down-regulated #############################
 ########################### Gene_Table edit ###########################
 library(readxl)
 library(writexl)
@@ -477,7 +477,7 @@ for (i in cli_progress_along(seq(all_pops.T_Down))) {
 }
 names(Gene_Table_List.T_Down) <- all_pops.T_Down
 
-########################### Selection Type Overlaps ###########################
+######################### Selection Type Overlaps #########################
 library(rstudioapi)
 library(SuperExactTest)
 
