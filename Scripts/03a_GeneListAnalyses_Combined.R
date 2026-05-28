@@ -58,7 +58,7 @@ savePlotAsImage(
 
 Longev_Immundat <- Longev_Immun_Summ$Table  %>%  mutate(P.adj = p.adjust(P.value, method = "BH"))
 View(Longev_Immundat)
-Longev_Immundat$Elements <- str_flatten_comma(Gene2SYMBOL(unlist(strsplit(x = Longev_Immundat$Elements, split = ", "))))
+Longev_Immundat$Elements <- str_flatten_comma(Gene2SYMBOL(unlist(stri_split_regex(str = Longev_Immundat$Elements, pattern = ", "))))
 write_excel_csv(Longev_Immundat,
                 file = "Results/Tables/Longev_Immun.csv",
                 append = FALSE,
@@ -87,7 +87,7 @@ Selectiondat <- Selection_Summ$Table  %>%  mutate(P.adj = p.adjust(P.value, meth
 View(Selectiondat)
 Selectiondat <- sort_by.data.frame(x = Selectiondat, y = -Selectiondat$FE)
 Selectiondat <- sort_by.data.frame(x = Selectiondat, y = -Selectiondat$Degree)
-Selectiondat$Elements <- unlist(map(.x = strsplit(x = Selectiondat$Elements, split = ", "), .f = compose(str_flatten_comma, Gene2SYMBOL)))
+Selectiondat$Elements <- stri_join_list(sep = ", ", map(.x = stri_split_regex(str = Selectiondat$Elements, pattern = ", "), .f = Gene2SYMBOL))
 write_excel_csv(Selectiondat,
                 file = "Results/Tables/sel_type.csv",
                 append = FALSE,
@@ -195,7 +195,7 @@ View(Longevdat)
 Longevdat <- sort_by.data.frame(x = Longevdat, y = -Longevdat$FE)
 Longevdat <- sort_by.data.frame(x = Longevdat, y = -Longevdat$Degree)
 Longevdat <- Longevdat[Longevdat$Observed.Overlap>0,]
-Longevdat$Elements <- unlist(map(.x = strsplit(x = Longevdat$Elements, split = ", "), .f = compose(str_flatten_comma, Gene2SYMBOL)))
+Longevdat$Elements <- stri_join_list(sep = ", ", map(.x = stri_split_regex(str = Longevdat$Elements, pattern = ", "), .f = Gene2SYMBOL))
 write_excel_csv(Longevdat,
                 file = "Results/Tables/longevity_pops.csv",
                 append = FALSE,
@@ -206,7 +206,7 @@ View(Immundat)
 Immundat <- sort_by.data.frame(x = Immundat, y = -Immundat$FE)
 Immundat <- sort_by.data.frame(x = Immundat, y = -Immundat$Degree)
 Immundat <- Immundat[Immundat$Observed.Overlap>0,]
-Immundat$Elements <- unlist(map(.x = strsplit(x = Immundat$Elements, split = ", "), .f = compose(str_flatten_comma, Gene2SYMBOL)))
+Immundat$Elements <- stri_join_list(sep = ", ", map(.x = stri_split_regex(str = Immundat$Elements, pattern = ", "), .f = Gene2SYMBOL))
 write_excel_csv(Immundat,
                 file = "Results/Tables/immunity_pops.csv",
                 append = FALSE,
@@ -217,7 +217,7 @@ View(Stressdat)
 Stressdat <- sort_by.data.frame(x = Stressdat, y = -Stressdat$FE)
 Stressdat <- sort_by.data.frame(x = Stressdat, y = -Stressdat$Degree)
 Stressdat <- Stressdat[Stressdat$Observed.Overlap>0,]
-Stressdat$Elements <- unlist(map(.x = strsplit(x = Stressdat$Elements, split = ", "), .f = compose(str_flatten_comma, Gene2SYMBOL)))
+Stressdat$Elements <- stri_join_list(sep = ", ", map(.x = stri_split_regex(str = Stressdat$Elements, pattern = ", "), .f = Gene2SYMBOL))
 write_excel_csv(Stressdat,
                 file = "Results/Tables/stress_pops.csv",
                 append = FALSE,
