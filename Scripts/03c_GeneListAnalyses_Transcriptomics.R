@@ -58,7 +58,7 @@ savePlotAsImage(
 
 Longev_Immundat.T <- Longev_Immun_Summ.T$Table  %>%  mutate(P.adj = p.adjust(P.value, method = "BH"))
 View(Longev_Immundat.T)
-Longev_Immundat.T$Elements <- str_flatten_comma(Gene2SYMBOL(unlist(stri_split_regex(str = Longev_Immundat.T$Elements, pattern = ", "))))
+Longev_Immundat.T$Elements <- str_flatten_comma(Gene2SYMBOL(unlist(stri_extract_all_words(Longev_Immundat.T$Elements))))
 write_excel_csv(Longev_Immundat.T,
                 file = "Results/Tables/Longev_Immun_Transcriptom.csv",
                 append = FALSE,
@@ -87,7 +87,7 @@ Selectiondat.T <- Selection_Summ.T$Table  %>%  mutate(P.adj = p.adjust(P.value, 
 View(Selectiondat.T)
 Selectiondat.T <- sort_by.data.frame(x = Selectiondat.T, y = -Selectiondat.T$FE)
 Selectiondat.T <- sort_by.data.frame(x = Selectiondat.T, y = -Selectiondat.T$Degree)
-Selectiondat.T$Elements <- stri_join_list(sep = ", ", map(.x = stri_split_regex(str = Selectiondat.T$Elements, pattern = ", "), .f = Gene2SYMBOL))
+Selectiondat.T$Elements <- stri_join_list(sep = ", ", map(.x = stri_extract_all_words(Selectiondat.T$Elements), .f = Gene2SYMBOL))
 write_excel_csv(Selectiondat.T,
                 file = "Results/Tables/sel_type_Transcriptom.csv",
                 append = FALSE,
@@ -207,7 +207,7 @@ View(Immundat.T)
 Immundat.T <- sort_by.data.frame(x = Immundat.T, y = -Immundat.T$FE)
 Immundat.T <- sort_by.data.frame(x = Immundat.T, y = -Immundat.T$Degree)
 Immundat.T <- Immundat.T[Immundat.T$Observed.Overlap>0,]
-Immundat.T$Elements <- stri_join_list(sep = ", ", map(.x = stri_split_regex(str = Immundat.T$Elements, pattern = ", "), .f = Gene2SYMBOL))
+Immundat.T$Elements <- stri_join_list(sep = ", ", map(.x = stri_extract_all_words(Immundat.T$Elements), .f = Gene2SYMBOL))
 write_excel_csv(Immundat.T,
                 file = "Results/Tables/immunity_pops_Transcriptom.csv",
                 append = FALSE,
@@ -218,7 +218,7 @@ View(Stressdat.T)
 Stressdat.T <- sort_by.data.frame(x = Stressdat.T, y = -Stressdat.T$FE)
 Stressdat.T <- sort_by.data.frame(x = Stressdat.T, y = -Stressdat.T$Degree)
 Stressdat.T <- Stressdat.T[Stressdat.T$Observed.Overlap>0,]
-Stressdat.T$Elements <- stri_join_list(sep = ", ", map(.x = stri_split_regex(str = Stressdat.T$Elements, pattern = ", "), .f = Gene2SYMBOL))
+Stressdat.T$Elements <- stri_join_list(sep = ", ", map(.x = stri_extract_all_words(Stressdat.T$Elements), .f = Gene2SYMBOL))
 write_excel_csv(Stressdat.T,
                 file = "Results/Tables/stress_pops_Transcriptom.csv",
                 append = FALSE,
@@ -430,7 +430,7 @@ View(Immundat.T_Up)
 Immundat.T_Up <- sort_by.data.frame(x = Immundat.T_Up, y = -Immundat.T_Up$FE)
 Immundat.T_Up <- sort_by.data.frame(x = Immundat.T_Up, y = -Immundat.T_Up$Degree)
 Immundat.T_Up <- Immundat.T_Up[Immundat.T_Up$Observed.Overlap>0,]
-Immundat.T_Up$Elements <- stri_join_list(sep = ", ", map(.x = stri_split_regex(str = Immundat.T_Up$Elements, pattern = ", "), .f = Gene2SYMBOL))
+Immundat.T_Up$Elements <- stri_join_list(sep = ", ", map(.x = stri_extract_all_words(Immundat.T_Up$Elements), .f = Gene2SYMBOL))
 write_excel_csv(Immundat.T_Up,
                 file = "Results/Tables/immunity_pops_Transcriptom_Up.csv",
                 append = FALSE,
@@ -441,7 +441,7 @@ View(Stressdat.T_Up)
 Stressdat.T_Up <- sort_by.data.frame(x = Stressdat.T_Up, y = -Stressdat.T_Up$FE)
 Stressdat.T_Up <- sort_by.data.frame(x = Stressdat.T_Up, y = -Stressdat.T_Up$Degree)
 Stressdat.T_Up <- Stressdat.T_Up[Stressdat.T_Up$Observed.Overlap>0,]
-Stressdat.T_Up$Elements <- stri_join_list(sep = ", ", map(.x = stri_split_regex(str = Stressdat.T_Up$Elements, pattern = ", "), .f = Gene2SYMBOL))
+Stressdat.T_Up$Elements <- stri_join_list(sep = ", ", map(.x = stri_extract_all_words(Stressdat.T_Up$Elements), .f = Gene2SYMBOL))
 write_excel_csv(Stressdat.T_Up,
                 file = "Results/Tables/stress_pops_Transcriptom_Up.csv",
                 append = FALSE,
@@ -504,7 +504,7 @@ savePlotAsImage(
 
 Longev_Immundat.T_Down <- Longev_Immun_Summ.T_Down$Table  %>%  mutate(P.adj = p.adjust(P.value, method = "BH"))
 View(Longev_Immundat.T_Down)
-Longev_Immundat.T_Down$Elements <- stri_join_list(sep = ", ", map(.x = stri_split_regex(str = Longev_Immundat.T_Down$Elements, pattern = ", "), .f = Gene2SYMBOL))
+Longev_Immundat.T_Down$Elements <- stri_join_list(sep = ", ", map(.x = stri_extract_all_words(Longev_Immundat.T_Down$Elements), .f = Gene2SYMBOL))
 write_excel_csv(Longev_Immundat.T_Down,
                 file = "Results/Tables/Longev_Immun_Transcriptom_Down.csv",
                 append = FALSE,
@@ -533,7 +533,7 @@ Selectiondat.T_Down <- Selection_Summ.T_Down$Table  %>%  mutate(P.adj = p.adjust
 View(Selectiondat.T_Down)
 Selectiondat.T_Down <- sort_by.data.frame(x = Selectiondat.T_Down, y = -Selectiondat.T_Down$FE)
 Selectiondat.T_Down <- sort_by.data.frame(x = Selectiondat.T_Down, y = -Selectiondat.T_Down$Degree)
-Selectiondat.T_Down$Elements <- stri_join_list(sep = ", ", map(.x = stri_split_regex(str = Selectiondat.T_Down$Elements, pattern = ", "), .f = Gene2SYMBOL))
+Selectiondat.T_Down$Elements <- stri_join_list(sep = ", ", map(.x = stri_extract_all_words(Selectiondat.T_Down$Elements), .f = Gene2SYMBOL))
 write_excel_csv(Selectiondat.T_Down,
                 file = "Results/Tables/sel_type_Transcriptom_Down.csv",
                 append = FALSE,
@@ -642,7 +642,7 @@ View(Longevdat.T_Down)
 Longevdat.T_Down <- sort_by.data.frame(x = Longevdat.T_Down, y = -Longevdat.T_Down$FE)
 Longevdat.T_Down <- sort_by.data.frame(x = Longevdat.T_Down, y = -Longevdat.T_Down$Degree)
 Longevdat.T_Down <- Longevdat.T_Down[Longevdat.T_Down$Observed.Overlap>0,]
-Longevdat.T_Down$Elements <- stri_join_list(sep = ", ", map(.x = stri_split_regex(str = Longevdat.T_Down$Elements, pattern = ", "), .f = Gene2SYMBOL))
+Longevdat.T_Down$Elements <- stri_join_list(sep = ", ", map(.x = stri_extract_all_words(Longevdat.T_Down$Elements), .f = Gene2SYMBOL))
 write_excel_csv(Longevdat.T_Down,
                 file = "Results/Tables/longevity_pops_Transcriptom_Down.csv",
                 append = FALSE,
@@ -664,7 +664,7 @@ View(Stressdat.T_Down)
 Stressdat.T_Down <- sort_by.data.frame(x = Stressdat.T_Down, y = -Stressdat.T_Down$FE)
 Stressdat.T_Down <- sort_by.data.frame(x = Stressdat.T_Down, y = -Stressdat.T_Down$Degree)
 Stressdat.T_Down <- Stressdat.T_Down[Stressdat.T_Down$Observed.Overlap>0,]
-Stressdat.T_Down$Elements <- stri_join_list(sep = ", ", map(.x = stri_split_regex(str = Stressdat.T_Down$Elements, pattern = ", "), .f = Gene2SYMBOL))
+Stressdat.T_Down$Elements <- stri_join_list(sep = ", ", map(.x = stri_extract_all_words(Stressdat.T_Down$Elements), .f = Gene2SYMBOL))
 write_excel_csv(Stressdat.T_Down,
                 file = "Results/Tables/stress_pops_Transcriptom_Down.csv",
                 append = FALSE,
